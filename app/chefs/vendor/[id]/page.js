@@ -65,33 +65,25 @@ export default async function VendorProfile({ params }) {
   );
 }
 
+// Add this state at the top of your component
+const [showToast, setShowToast] = useState(false);
+
 const handleWhatsAppOrder = async (item, vendor) => {
-  // 1. Log the order in Supabase for your records
-  const { error } = await supabase
-    .from('orders')
-    .insert([{
-      vendor_id: vendor.id,
-      product_id: item.id,
-      item_name: item.name,
-      price: item.price,
-      customer_name: 'Marketplace User' 
-    }]);
+  // 1. Save to Supabase
+  await supabase.from('orders').insert([{
+    vendor_id: vendor.id,
+    item_name: item.name,
+    price: item.price
+  }]);
 
-  if (error) console.error("Order logging failed:", error);
-
-  // 2. Format the phone number (remove spaces/pluses)
-  const cleanPhone = vendor.whatsapp_number.replace(/\D/g, ''); 
-
-  // 3. Create the professional message
-  const message = encodeURIComponent(
-    `Hello ${vendor.name}, I found your ${item.name} on Rwandamket! 
-    
-Item: ${item.name}
-Price: ${item.price.toLocaleString()} RWF
-
-Is this available for booking?`
-  );
-
-  // 4. Redirect to WhatsApp
-  window.open(`https://wa.me/${cleanPhone}?text=${message}`, '_blank');
+  // 2. Show the Success Message
+  setShowToast(true);
+  
+  // 3. Wait 1.5 seconds then redirect to WhatsApp
+  setTimeout(() => {
+    setShowToast(false);
+    const cleanPhone = vendor.whatsapp_number.replace(/\D/g, ''); 
+    const message = encodeURIComponent(`Hello ${vendor.name}, I want to order ${item.name}...`);
+    window.open(`https://wa.me/${cleanPhone}?text=${message}`, '_blank');
+  }, 1500);
 };
