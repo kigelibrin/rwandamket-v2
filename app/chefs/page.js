@@ -1,28 +1,55 @@
+"use client"; // This makes the page interactive
+import { useEffect, useState } from 'react';
+import { supabase } from '../lib/supabase';
+import VendorCard from '../components/VendorCard';
+import CategoryFilter from '../components/CategoryFilter';
 
-import { supabase } from '../lib/supabase'
-import VendorCard from '../components/VendorCard'
+export default function HomePage() {
+  const [vendors, setVendors] = useState([]);
+  const [activeCategory, setActiveCategory] = useState('all');
+  const [loading, setLoading] = useState(true);
 
-export default async function HomePage() {
-  // Fetch all vendors from your new table
-  const { data: vendors, error } = await supabase
-    .from('vendors')
-    .select('*')
-    .order('is_verified', { ascending: false }); // Show verified ones first!
+  useEffect(() => {
+    async function fetchVendors() {
+      setLoading(true);
+      let query = supabase.from('vendors').select('*').order('is_verified', { ascending: false });
 
-  if (error) return <p>Error loading marketplace: {error.message}</p>;
+      if (activeCategory !== 'all') {
+        query = query.eq('category', activeCategory);
+      }
+
+      const { data } = await query;
+      setVendors(data || []);
+      setLoading(false);
+    }
+    fetchVendors();
+  }, [activeCategory]); // Re-run whenever the category changes!
 
   return (
-    <main className="max-w-6xl mx-auto p-6">
-      <header className="mb-10 text-center">
-        <h1 className="text-4xl font-extrabold mb-2">Rwandamket</h1>
-        <p className="text-gray-500">National Marketplace & Tourist Services</p>
+    <main className="max-w-6xl mx-auto p-6 bg-gray-50 min-h-screen">
+      <header className="mb-8 text-center">
+        <h1 className="text-4xl font-black text-black tracking-tight">Rwandamket</h1>
+        <p className="text-gray-500 mt-2">National Market & Premium Services</p>
       </header>
 
-      <section className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {vendors.map((vendor) => (
-          <VendorCard key={vendor.id} vendor={vendor} />
-        ))}
-      </section>
+      <CategoryFilter activeCategory={activeCategory} setCategory={setActiveCategory} />
+
+      {loading ? (
+        <div className="text-center py-20 text-gray-400">Searching the market...</div>
+      ) : (
+        <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {vendors.map((vendor) => (
+            <VendorCard key={vendor.id} vendor={vendor} />
+          ))}
+        </section>
+      )}
+
+      {vendors.length === 0 && !loading && (
+        <div className="text-center py-20 bg-white rounded-3xl border border-dashed border-gray-300">
+          <p className="text-gray-500 font-medium">No partners in this category yet.</p>
+          <button className="text-blue-600 mt-2 text-sm underline">Apply to join as a partner</button>
+        </div>
+      )}
     </main>
-  )
+  );
 }
