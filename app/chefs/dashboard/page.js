@@ -49,6 +49,7 @@ export default function ChefDashboard() {
         </div>
         {vendor.is_verified && <Badge type="verified" />}
       </div>
+         <BadgeGallery activeBadges={vendor.badge_ids} />
 
       {/* 2. Notifications Area */}
       <div className="mt-6 p-4 bg-blue-50 border border-blue-100 rounded-2xl flex items-start gap-3">
