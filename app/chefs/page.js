@@ -91,3 +91,22 @@ export default function SearchBar({ searchTerm, setSearchTerm }) {
     </div>
   );
 }
+
+const handleWhatsAppOrder = (item, vendorName, vendorPhone) => {
+  // 1. Clean the phone number (remove spaces/plus)
+  const cleanPhone = vendorPhone.replace(/\D/g, ''); 
+  
+  // 2. Create the message
+  const message = `Hello ${vendorName}, I found your ${item.name} on Rwandamket! 
+  
+Item: ${item.name}
+Price: ${item.price.toLocaleString()} RWF
+  
+Is this available?`;
+
+  // 3. Encode for URL
+  const encodedMessage = encodeURIComponent(message);
+  
+  // 4. Open WhatsApp
+  window.open(`https://wa.me/${cleanPhone}?text=${encodedMessage}`, '_blank');
+};
