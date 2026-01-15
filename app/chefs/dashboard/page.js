@@ -1,19 +1,20 @@
-
 "use client";
 import { useEffect, useState } from 'react';
 import { supabase } from '../../lib/supabase';
+// These are the imports that bring your custom tools into the page
+import SubscriptionStatus from '../../components/SubscriptionStatus'; 
+import AddItemForm from '../../components/AddItemForm'; 
+import Badge from '../../components/Badge';
 
 export default function ChefDashboard() {
   const [vendor, setVendor] = useState(null);
   const [products, setProducts] = useState([]);
+  const [showAddForm, setShowAddForm] = useState(false);
 
   useEffect(() => {
     async function loadDashboardData() {
-      // 1. Get the logged-in user
       const { data: { user } } = await supabase.auth.getUser();
-      
       if (user) {
-        // 2. Fetch the vendor profile linked to this user
         const { data: vendorData } = await supabase
           .from('vendors')
           .select('*')
@@ -22,7 +23,6 @@ export default function ChefDashboard() {
         
         setVendor(vendorData);
 
-        // 3. Fetch that vendor's products
         if (vendorData) {
           const { data: productData } = await supabase
             .from('products_services')
@@ -35,48 +35,62 @@ export default function ChefDashboard() {
     loadDashboardData();
   }, []);
 
-  if (!vendor) return <p className="p-10">Loading your kitchen...</p>;
+  if (!vendor) return <div className="p-20 text-center">Loading your kitchen...</div>;
 
   return (
-    <div className="max-w-4xl mx-auto p-6">
-      <div className="flex justify-between items-center mb-8">
-        <h1 className="text-2xl font-bold">Chef Dashboard</h1>
-        <div className="flex gap-2">
-           {vendor.is_premium && <span className="bg-black text-white px-3 py-1 rounded-full text-xs">PREMIUM PLAN</span>}
-           <span className="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-bold">ONLINE</span>
+    <div className="max-w-4xl mx-auto p-6 bg-white min-h-screen">
+      {/* 1. Subscription Status (The component you moved) */}
+      <SubscriptionStatus isPremium={vendor.is_premium} />
+
+      <div className="mt-8 flex justify-between items-end">
+        <div>
+          <h1 className="text-3xl font-black">Hello, {vendor.name}</h1>
+          <p className="text-gray-500">Manage your National Market presence</p>
+        </div>
+        {vendor.is_verified && <Badge type="verified" />}
+      </div>
+
+      {/* 2. Notifications Area */}
+      <div className="mt-6 p-4 bg-blue-50 border border-blue-100 rounded-2xl flex items-start gap-3">
+        <span className="text-xl">🔔</span>
+        <div>
+          <p className="text-sm font-bold text-blue-900">New Achievement!</p>
+          <p className="text-xs text-blue-700">You've reached 10 orders. Your "Top Chef" badge is being processed.</p>
         </div>
       </div>
 
-      {/* Profile Update Section */}
-      <section className="bg-white p-6 rounded-3xl border mb-6 shadow-sm">
-        <h2 className="font-bold mb-4">Your Profile</h2>
-        <div className="flex gap-4 items-center">
-          <img src={vendor.image_url} className="w-16 h-16 rounded-full object-cover" />
-          <div className="flex-1">
-            <p className="font-bold text-lg">{vendor.name}</p>
-            <p className="text-gray-500 text-sm">{vendor.location}</p>
-          </div>
-          <button className="border px-4 py-2 rounded-xl text-sm hover:bg-gray-50">Edit Profile</button>
+      {/* 3. Menu Management */}
+      <section className="mt-10">
+        <div className="flex justify-between items-center mb-6">
+          <h2 className="text-xl font-bold">Your Menu</h2>
+          <button 
+            onClick={() => setShowAddForm(!showAddForm)}
+            className="bg-black text-white px-6 py-2 rounded-full font-bold text-sm"
+          >
+            {showAddForm ? 'Close' : '+ Add New Dish'}
+          </button>
         </div>
-      </section>
 
-      {/* Menu Management */}
-      <section>
-        <div className="flex justify-between items-center mb-4">
-          <h2 className="font-bold">Your Menu Items</h2>
-          <button className="bg-black text-white px-4 py-2 rounded-xl text-sm">+ Add Item</button>
-        </div>
-        <div className="grid gap-3">
+        {showAddForm && (
+          <div className="mb-8">
+            <AddItemForm vendorId={vendor.id} onComplete={() => {
+              setShowAddForm(false);
+              // Logic to refresh the list would go here
+            }} />
+          </div>
+        )}
+
+        <div className="grid gap-4">
           {products.map(item => (
-            <div key={item.id} className="flex justify-between items-center p-4 bg-gray-50 rounded-2xl border border-gray-100">
-               <div>
-                 <p className="font-bold">{item.name}</p>
-                 <p className="text-xs text-gray-500">{item.price.toLocaleString()} RWF</p>
-               </div>
-               <div className="flex gap-2">
-                 <button className="text-sm text-blue-600">Update</button>
-                 <button className="text-sm text-red-600">Delete</button>
-               </div>
+            <div key={item.id} className="p-4 border rounded-2xl flex justify-between items-center shadow-sm">
+              <div className="flex items-center gap-4">
+                <img src={item.image_url} className="w-12 h-12 rounded-lg object-cover" />
+                <div>
+                  <p className="font-bold">{item.name}</p>
+                  <p className="text-xs text-gray-500">{item.price.toLocaleString()} RWF</p>
+                </div>
+              </div>
+              <button className="text-gray-400 hover:text-red-500 text-sm">Remove</button>
             </div>
           ))}
         </div>
