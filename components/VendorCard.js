@@ -16,7 +16,8 @@ export default function VendorCard({ vendor }) {
   {vendor.is_premium && <Badge type="premium" />}
   {vendor.is_verified && <Badge type="verified" />}
 </div>
-        </div>
+    {/* ------------------------------------------- */}
+    </div>
         
         <div className="p-5">
           <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-1">{vendor.category}</p>
