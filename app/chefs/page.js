@@ -8,7 +8,7 @@ export default function Home() {
   const [vendors, setVendors] = useState([]);
   const [activeCategory, setActiveCategory] = useState('all');
   const [loading, setLoading] = useState(true);
-
+  const [searchTerm, setSearchTerm] = useState('');
   useEffect(() => {
     async function fetchVendors() {
       setLoading(true);
@@ -46,6 +46,7 @@ export default function Home() {
 
       {/* Category Filter Component */}
       <div className="max-w-7xl mx-auto">
+        <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
         <CategoryFilter 
           activeCategory={activeCategory} 
           setCategory={setActiveCategory} 
