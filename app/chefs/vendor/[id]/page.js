@@ -1,7 +1,8 @@
 "use client"; // Required for useState and onClick
 import { useEffect, useState } from 'react';
 import { supabase } from 'supabaseClient.js/lib/supabase';
-import ProductCard from '../../../components/ProductCard'; // Using the component we built
+import ProductCard from '../../../components/ProductCard'; 
+import Link from 'next/link';
 
 export default function VendorProfile({ params }) {
   const { id } = params;
@@ -59,6 +60,12 @@ export default function VendorProfile({ params }) {
   if (!vendor) return <div className="p-20 text-center">Vendor not found.</div>;
 
   return (
+    <Link 
+  href="/" 
+  className="absolute top-6 left-6 z-20 bg-white/20 hover:bg-white/40 backdrop-blur-md text-white px-4 py-2 rounded-full text-xs font-bold transition"
+>
+  ← Back to Market
+</Link>
     <main className="min-h-screen bg-white relative">
       {/* Hero Header */}
       <div className="h-72 bg-gray-900 relative">
