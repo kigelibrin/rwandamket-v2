@@ -9,6 +9,7 @@ const allPossibleBadges = [
 ];
 
 export default function BadgeGallery({ activeBadges = [] }) {
+  const safeBadges = Array.isArray(activeBadges) ? activeBadges : [];
   return (
     <div className="bg-white p-6 rounded-3xl border border-gray-100 shadow-sm mt-6">
       <h3 className="font-bold text-gray-900 mb-4">Your Achievements</h3>
