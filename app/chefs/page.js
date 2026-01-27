@@ -20,6 +20,11 @@ export default function Home() {
         query = query.eq('category', activeCategory);
       }
 
+      if (searchTerm) {
+    
+    query = query.or(`name.ilike.%${searchTerm}%,location.ilike.%${searchTerm}%,bio.ilike.%${searchTerm}%`);
+  }
+
       const { data, error } = await query;
 
       if (!error) {
