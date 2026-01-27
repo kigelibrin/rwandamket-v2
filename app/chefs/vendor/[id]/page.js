@@ -1,6 +1,6 @@
 "use client"; // Required for useState and onClick
 import { useEffect, useState } from 'react';
-import { supabase } from '../../../lib/supabase';
+import { supabase } from 'supabaseClient.js/lib/supabase';
 import ProductCard from '../../../components/ProductCard'; // Using the component we built
 
 export default function VendorProfile({ params }) {
