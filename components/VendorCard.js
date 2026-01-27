@@ -11,10 +11,11 @@ export default function VendorCard({ vendor }) {
             src={vendor.image_url || 'https://via.placeholder.com/400x300?text=Rwandamket'} 
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
           />
-          <div className="absolute top-3 right-3 flex gap-2">
-            {vendor.is_premium && <Badge type="premium" />}
-            {vendor.is_verified && <Badge type="verified" />}
-          </div>
+          
+<div className="absolute top-3 right-3 flex flex-wrap justify-end gap-1.5 max-w-[70%]">
+  {vendor.is_premium && <Badge type="premium" />}
+  {vendor.is_verified && <Badge type="verified" />}
+</div>
         </div>
         
         <div className="p-5">
