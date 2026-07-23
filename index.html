@@ -739,6 +739,53 @@
     </div>
 
 </div>
+        <!-- ==========================================================
+     CHECKOUT MODAL
+========================================================== -->
+<div id="checkoutModal" class="modal">
+
+    <div class="modal-content payment-modal-content">
+
+        <span class="close-modal" id="closeCheckoutModal">&times;</span>
+
+        <h2 class="payment-modal-title">
+            🛒 Your Cart
+        </h2>
+
+        <p class="payment-modal-sub">
+            Review your order before proceeding to payment.
+        </p>
+
+        <!-- Cart Items -->
+        <div id="checkoutItems">
+
+            <div class="state-message">
+                Your cart is empty.
+            </div>
+
+        </div>
+
+        <hr style="margin:20px 0;">
+
+        <div style="display:flex;justify-content:space-between;font-weight:700;font-size:1.1rem;">
+            <span>Total</span>
+            <span id="checkoutTotal">
+                0 RWF
+            </span>
+        </div>
+
+        <button
+            class="btn-primary"
+            id="continuePaymentBtn"
+            style="width:100%;margin-top:20px;">
+
+            Continue to Payment →
+
+        </button>
+
+    </div>
+
+</div>
 
        <!-- =========================
          JAVASCRIPT
