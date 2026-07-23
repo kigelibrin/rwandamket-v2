@@ -391,3 +391,89 @@
     </div>
 
 </section>
+    <!-- ==========================================================
+     MARKETS DIRECTORY
+=========================================================== -->
+<section class="section-container bg-light" id="markets">
+
+    <div class="section-heading">
+        <h2>Explore Rwanda</h2>
+        <p>
+            Browse restaurants, supermarkets, hotels, tour guides,
+            transport services, photographers, chefs and more.
+        </p>
+    </div>
+
+    <!-- Search -->
+    <div class="search-container">
+        <input
+            type="text"
+            id="marketSearch"
+            placeholder="Search markets, restaurants, hotels..."
+            autocomplete="off">
+    </div>
+
+    <!-- Categories -->
+    <div class="category-wrapper">
+        <div class="category-scroll" id="categoryFilters">
+
+            <button class="filter-chip active"
+                data-category="all">
+                All
+            </button>
+
+            <button class="filter-chip"
+                data-category="restaurants">
+                🍽 Restaurants
+            </button>
+
+            <button class="filter-chip"
+                data-category="markets">
+                🛒 Markets
+            </button>
+
+            <button class="filter-chip"
+                data-category="hotels">
+                🏨 Hotels
+            </button>
+
+            <button class="filter-chip"
+                data-category="transport">
+                🚖 Transport
+            </button>
+
+            <button class="filter-chip"
+                data-category="tours">
+                🗺 Tours
+            </button>
+
+            <button class="filter-chip"
+                data-category="photography">
+                📸 Photography
+            </button>
+
+            <button class="filter-chip"
+                data-category="chefs">
+                👨‍🍳 Private Chefs
+            </button>
+
+            <button class="filter-chip"
+                data-category="events">
+                🎉 Events
+            </button>
+
+        </div>
+    </div>
+
+    <!-- Dynamic Markets -->
+    <div
+        id="marketsGrid"
+        class="markets-grid">
+
+        <div class="state-message">
+            Loading markets...
+        </div>
+
+    </div>
+
+</section>
