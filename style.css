@@ -1125,3 +1125,608 @@ body.dark-mode .btn-secondary{
     }
 
 }
+/* =============================================================================
+   18. PRODUCT GRID
+=============================================================================*/
+
+.products-grid{
+
+    display:grid;
+
+    gap:24px;
+
+    grid-template-columns:repeat(auto-fill,minmax(230px,1fr));
+
+}
+
+.product-card{
+
+    background:var(--surface);
+
+    border:1px solid var(--border);
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    transition:.3s;
+
+    display:flex;
+
+    flex-direction:column;
+
+    box-shadow:var(--shadow-sm);
+
+}
+
+.product-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:var(--shadow-lg);
+
+}
+
+.product-image{
+
+    position:relative;
+
+    width:100%;
+
+    height:220px;
+
+    overflow:hidden;
+
+}
+
+.product-image img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    transition:.4s;
+
+}
+
+.product-card:hover .product-image img{
+
+    transform:scale(1.08);
+
+}
+
+.product-badge{
+
+    position:absolute;
+
+    top:15px;
+
+    left:15px;
+
+    background:var(--primary);
+
+    color:#fff;
+
+    padding:6px 12px;
+
+    border-radius:999px;
+
+    font-size:.75rem;
+
+    font-weight:700;
+
+}
+
+.favorite-btn{
+
+    position:absolute;
+
+    top:15px;
+
+    right:15px;
+
+    width:42px;
+
+    height:42px;
+
+    border-radius:50%;
+
+    border:none;
+
+    background:rgba(255,255,255,.95);
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.favorite-btn:hover{
+
+    transform:scale(1.1);
+
+}
+
+.product-content{
+
+    padding:18px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    flex:1;
+
+}
+
+.product-title{
+
+    font-size:1.05rem;
+
+    font-weight:700;
+
+    margin-bottom:8px;
+
+}
+
+.product-description{
+
+    color:var(--text-light);
+
+    font-size:.9rem;
+
+    flex:1;
+
+}
+
+.product-meta{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin:18px 0;
+
+}
+
+.product-price{
+
+    color:var(--primary);
+
+    font-size:1.2rem;
+
+    font-weight:800;
+
+}
+
+.product-rating{
+
+    font-size:.85rem;
+
+    color:#ff9800;
+
+}
+
+.add-cart-btn{
+
+    width:100%;
+
+}
+
+
+
+/* =============================================================================
+   19. FLOATING CART
+=============================================================================*/
+
+.cart-bar{
+
+    position:fixed;
+
+    right:30px;
+
+    bottom:30px;
+
+    width:340px;
+
+    background:var(--primary-dark);
+
+    color:#fff;
+
+    border-radius:22px;
+
+    padding:22px;
+
+    box-shadow:var(--shadow-lg);
+
+    z-index:2000;
+
+    transition:.35s;
+
+}
+
+.cart-bar.hidden{
+
+    transform:translateY(180%);
+
+}
+
+.cart-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:18px;
+
+}
+
+.cart-title{
+
+    font-size:1.1rem;
+
+    font-weight:700;
+
+}
+
+.cart-total{
+
+    font-size:1.3rem;
+
+    font-weight:800;
+
+}
+
+.checkout-btn{
+
+    width:100%;
+
+    margin-top:18px;
+
+}
+
+
+
+/* =============================================================================
+   20. CHECKOUT SUMMARY
+=============================================================================*/
+
+.checkout-summary{
+
+    background:var(--surface);
+
+    border:1px solid var(--border);
+
+    border-radius:18px;
+
+    padding:25px;
+
+}
+
+.summary-row{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    margin-bottom:12px;
+
+}
+
+.summary-total{
+
+    margin-top:20px;
+
+    padding-top:18px;
+
+    border-top:1px solid var(--border);
+
+    font-size:1.2rem;
+
+    font-weight:800;
+
+}
+
+
+
+/* =============================================================================
+   21. PAYMENT FORM
+=============================================================================*/
+
+.payment-form{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+}
+
+.form-group{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:8px;
+
+}
+
+.form-group label{
+
+    font-weight:600;
+
+    font-size:.9rem;
+
+}
+
+.form-control{
+
+    width:100%;
+
+    padding:14px;
+
+    border-radius:12px;
+
+    border:1px solid var(--border);
+
+    background:var(--surface);
+
+    color:var(--text);
+
+    transition:.3s;
+
+}
+
+.form-control:focus{
+
+    border-color:var(--primary);
+
+    box-shadow:0 0 0 4px rgba(46,125,50,.15);
+
+}
+
+
+
+/* =============================================================================
+   22. LOCATION CARDS
+=============================================================================*/
+
+.location-option{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:18px;
+
+    border:1px solid var(--border);
+
+    border-radius:15px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    margin-bottom:12px;
+
+}
+
+.location-option:hover{
+
+    border-color:var(--primary);
+
+    background:var(--primary-light);
+
+}
+
+
+
+/* =============================================================================
+   23. PAYMENT SUCCESS
+=============================================================================*/
+
+.payment-success{
+
+    text-align:center;
+
+    padding:25px;
+
+}
+
+.payment-success .icon{
+
+    font-size:4rem;
+
+    margin-bottom:18px;
+
+}
+
+.payment-success h2{
+
+    color:var(--success);
+
+    margin-bottom:12px;
+
+}
+
+.tracking-code{
+
+    background:var(--background);
+
+    border:1px dashed var(--primary);
+
+    padding:15px;
+
+    border-radius:12px;
+
+    margin:20px 0;
+
+    font-weight:700;
+
+    font-family:monospace;
+
+    color:var(--primary);
+
+}
+
+
+
+/* =============================================================================
+   24. TOAST
+=============================================================================*/
+
+.toast{
+
+    position:fixed;
+
+    bottom:30px;
+
+    left:50%;
+
+    transform:translateX(-50%) translateY(120px);
+
+    background:var(--surface);
+
+    border:1px solid var(--border);
+
+    padding:15px 22px;
+
+    border-radius:15px;
+
+    box-shadow:var(--shadow-lg);
+
+    z-index:5000;
+
+    transition:.35s;
+
+}
+
+.toast.show{
+
+    transform:translateX(-50%) translateY(0);
+
+}
+
+.toast-success{
+
+    border-left:5px solid var(--success);
+
+}
+
+.toast-warning{
+
+    border-left:5px solid var(--warning);
+
+}
+
+.toast-danger{
+
+    border-left:5px solid var(--danger);
+
+}
+
+
+
+/* =============================================================================
+   25. SKELETON LOADING
+=============================================================================*/
+
+.skeleton{
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:#e8e8e8;
+
+}
+
+body.dark-mode .skeleton{
+
+    background:#2f3338;
+
+}
+
+.skeleton::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    transform:translateX(-100%);
+
+    background:
+
+    linear-gradient(
+
+        90deg,
+
+        transparent,
+
+        rgba(255,255,255,.35),
+
+        transparent
+
+    );
+
+    animation:skeleton-loading 1.2s infinite;
+
+}
+
+@keyframes skeleton-loading{
+
+    100%{
+
+        transform:translateX(100%);
+
+    }
+
+}
+
+
+
+/* =============================================================================
+   26. RESPONSIVE
+=============================================================================*/
+
+@media(max-width:768px){
+
+    .products-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+    .cart-bar{
+
+        width:calc(100% - 30px);
+
+        right:15px;
+
+        bottom:15px;
+
+    }
+
+}
+
+@media(max-width:520px){
+
+    .products-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
