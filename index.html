@@ -662,3 +662,94 @@
     </p>
 
 </footer>
+    <!-- ==========================================================
+     LOCATION SELECTION MODAL
+========================================================== -->
+<div id="locationModal" class="modal">
+
+    <div class="modal-content location-modal-content">
+
+        <span class="close-modal" id="closeLocationModal">&times;</span>
+
+        <div class="location-modal-icon">📍</div>
+
+        <h2 class="location-modal-title">
+            Choose Your Location
+        </h2>
+
+        <p class="location-modal-sub">
+            Select where you'd like your order delivered or where
+            you'd like to explore services.
+        </p>
+
+        <!-- Delivery / Pickup -->
+        <div class="loc-toggle-group">
+
+            <button
+                class="loc-toggle-btn active"
+                data-mode="delivery">
+
+                🚚 Delivery
+
+            </button>
+
+            <button
+                class="loc-toggle-btn"
+                data-mode="pickup">
+
+                🛍 Pickup
+
+            </button>
+
+        </div>
+
+        <!-- Dynamic locations -->
+        <div
+            class="location-options-list"
+            id="locationOptions">
+
+            <button
+                class="location-option-card"
+                data-location="Kigali">
+
+                Kigali
+
+                <span class="loc-arrow">→</span>
+
+            </button>
+
+            <button
+                class="location-option-card"
+                data-location="Musanze">
+
+                Musanze
+
+                <span class="loc-arrow">→</span>
+
+            </button>
+
+            <button
+                class="location-option-card"
+                data-location="Huye">
+
+                Huye
+
+                <span class="loc-arrow">→</span>
+
+            </button>
+
+            <button
+                class="location-option-card"
+                data-location="Rubavu">
+
+                Rubavu
+
+                <span class="loc-arrow">→</span>
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
