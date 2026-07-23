@@ -622,3 +622,506 @@ body.dark-mode .btn-secondary{
     color:var(--danger);
 
 }
+/* =============================================================================
+   10. HERO SECTION
+=============================================================================*/
+
+.hero{
+
+    position:relative;
+    height:70vh;
+    min-height:520px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    overflow:hidden;
+
+    color:#fff;
+
+}
+
+.hero::before{
+
+    content:"";
+
+    position:absolute;
+    inset:0;
+
+    background:linear-gradient(
+        rgba(0,0,0,.45),
+        rgba(0,0,0,.55)
+    );
+
+    z-index:1;
+
+}
+
+.hero-slides{
+
+    position:absolute;
+    inset:0;
+
+}
+
+.hero-slide{
+
+    position:absolute;
+    inset:0;
+
+    background-size:cover;
+    background-position:center;
+
+    opacity:0;
+
+    transition:opacity 1s ease;
+
+}
+
+.hero-slide.active{
+
+    opacity:1;
+
+}
+
+.hero-content{
+
+    position:relative;
+
+    z-index:2;
+
+    text-align:center;
+
+    max-width:900px;
+
+    padding:20px;
+
+}
+
+.hero-content h1{
+
+    margin-bottom:18px;
+
+}
+
+.hero-content p{
+
+    color:white;
+
+    opacity:.95;
+
+    font-size:1.15rem;
+
+    margin-bottom:35px;
+
+}
+
+.hero-buttons{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:15px;
+
+    flex-wrap:wrap;
+
+}
+
+.hero-dots{
+
+    position:absolute;
+
+    bottom:30px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    display:flex;
+
+    gap:10px;
+
+    z-index:5;
+
+}
+
+.hero-dot{
+
+    width:10px;
+
+    height:10px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.45);
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.hero-dot.active{
+
+    width:30px;
+
+    border-radius:20px;
+
+    background:white;
+
+}
+
+
+
+/* =============================================================================
+   11. SEARCH
+=============================================================================*/
+
+.search-wrapper{
+
+    margin-top:-45px;
+
+    position:relative;
+
+    z-index:50;
+
+}
+
+.search-box{
+
+    background:var(--surface);
+
+    padding:22px;
+
+    border-radius:22px;
+
+    box-shadow:var(--shadow-lg);
+
+    border:1px solid var(--border);
+
+}
+
+.search-input{
+
+    width:100%;
+
+    border:none;
+
+    background:transparent;
+
+    color:var(--text);
+
+    font-size:1rem;
+
+}
+
+.search-input::placeholder{
+
+    color:var(--text-light);
+
+}
+
+
+
+/* =============================================================================
+   12. CATEGORY CHIPS
+=============================================================================*/
+
+.category-wrapper{
+
+    margin-top:35px;
+
+    overflow-x:auto;
+
+    padding-bottom:8px;
+
+}
+
+.category-wrapper::-webkit-scrollbar{
+
+    display:none;
+
+}
+
+.category-scroll{
+
+    display:flex;
+
+    gap:12px;
+
+    width:max-content;
+
+}
+
+.filter-chip{
+
+    border:1px solid var(--border);
+
+    background:var(--surface);
+
+    padding:10px 20px;
+
+    border-radius:999px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    white-space:nowrap;
+
+    font-weight:600;
+
+}
+
+.filter-chip:hover{
+
+    background:var(--primary-light);
+
+}
+
+.filter-chip.active{
+
+    background:var(--primary);
+
+    color:white;
+
+    border-color:var(--primary);
+
+}
+
+
+
+/* =============================================================================
+   13. SECTION HEADERS
+=============================================================================*/
+
+.section-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:30px;
+
+}
+
+.section-link{
+
+    color:var(--primary);
+
+    font-weight:700;
+
+}
+
+.section-link:hover{
+
+    text-decoration:underline;
+
+}
+
+
+
+/* =============================================================================
+   14. MARKET GRID
+=============================================================================*/
+
+.markets-grid{
+
+    display:grid;
+
+    gap:24px;
+
+    grid-template-columns:
+    repeat(auto-fill,minmax(240px,1fr));
+
+}
+
+
+
+/* =============================================================================
+   15. MARKET CARD
+=============================================================================*/
+
+.market-card{
+
+    position:relative;
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+.market-image{
+
+    width:100%;
+
+    height:190px;
+
+    overflow:hidden;
+
+}
+
+.market-image img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    transition:transform .45s;
+
+}
+
+.market-card:hover img{
+
+    transform:scale(1.08);
+
+}
+
+.market-body{
+
+    padding:20px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    flex:1;
+
+}
+
+.market-title{
+
+    font-size:1.15rem;
+
+    font-weight:700;
+
+    margin-bottom:8px;
+
+}
+
+.market-description{
+
+    color:var(--text-light);
+
+    font-size:.92rem;
+
+    flex:1;
+
+}
+
+.market-footer{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-top:20px;
+
+}
+
+.market-price{
+
+    font-weight:800;
+
+    color:var(--primary);
+
+    font-size:1.05rem;
+
+}
+
+.market-rating{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:4px;
+
+    color:#ff9800;
+
+    font-size:.9rem;
+
+}
+
+
+
+/* =============================================================================
+   16. FEATURE TAG
+=============================================================================*/
+
+.feature-tag{
+
+    position:absolute;
+
+    top:15px;
+
+    left:15px;
+
+    background:rgba(0,0,0,.75);
+
+    color:white;
+
+    padding:6px 12px;
+
+    border-radius:999px;
+
+    font-size:.75rem;
+
+    font-weight:700;
+
+}
+
+
+
+/* =============================================================================
+   17. EMPTY / LOADING STATES
+=============================================================================*/
+
+.state-message{
+
+    grid-column:1/-1;
+
+    text-align:center;
+
+    padding:80px 20px;
+
+    color:var(--text-light);
+
+}
+
+.loading-spinner{
+
+    width:46px;
+
+    height:46px;
+
+    border:4px solid rgba(0,0,0,.08);
+
+    border-top:4px solid var(--primary);
+
+    border-radius:50%;
+
+    margin:auto;
+
+    animation:spin .8s linear infinite;
+
+}
+
+@keyframes spin{
+
+    to{
+
+        transform:rotate(360deg);
+
+    }
+
+}
