@@ -786,7 +786,145 @@
     </div>
 
 </div>
+<!-- =========================================
+     PAYMENT MODAL
+========================================= -->
+<div id="paymentModal" class="modal">
+    <div class="modal-content payment-modal-content">
 
+        <span class="close-modal" onclick="closePaymentModal()">&times;</span>
+
+        <h2 class="payment-modal-title">Choose Payment Method</h2>
+
+        <p class="payment-modal-sub">
+            Secure checkout powered by RwandaMket
+        </p>
+
+        <!-- Payment Methods -->
+
+        <div class="payment-methods">
+
+            <!-- MTN -->
+
+            <label class="payment-option">
+
+                <input
+                    type="radio"
+                    name="paymentMethod"
+                    value="momo"
+                    checked
+                >
+
+                <div class="payment-card">
+
+                    <div class="payment-left">
+                        📱
+                        <div>
+                            <strong>MTN Mobile Money</strong>
+                            <small>Fast & Secure</small>
+                        </div>
+                    </div>
+
+                    <span class="recommended-badge">
+                        Recommended
+                    </span>
+
+                </div>
+
+            </label>
+
+            <!-- Airtel -->
+
+            <label class="payment-option">
+
+                <input
+                    type="radio"
+                    name="paymentMethod"
+                    value="airtel"
+                >
+
+                <div class="payment-card">
+
+                    <div class="payment-left">
+                        📲
+                        <div>
+                            <strong>Airtel Money</strong>
+                            <small>Instant Transfer</small>
+                        </div>
+                    </div>
+
+                </div>
+
+            </label>
+
+            <!-- Card -->
+
+            <label class="payment-option">
+
+                <input
+                    type="radio"
+                    name="paymentMethod"
+                    value="card"
+                >
+
+                <div class="payment-card">
+
+                    <div class="payment-left">
+                        💳
+                        <div>
+                            <strong>Credit / Debit Card</strong>
+                            <small>Visa • Mastercard</small>
+                        </div>
+                    </div>
+
+                </div>
+
+            </label>
+
+            <!-- Bank -->
+
+            <label class="payment-option">
+
+                <input
+                    type="radio"
+                    name="paymentMethod"
+                    value="bank"
+                >
+
+                <div class="payment-card">
+
+                    <div class="payment-left">
+                        🏦
+                        <div>
+                            <strong>Bank Transfer</strong>
+                            <small>Local & International</small>
+                        </div>
+                    </div>
+
+                </div>
+
+            </label>
+
+        </div>
+
+        <div class="form-group">
+
+            <label>Phone Number</label>
+
+            <input
+                type="tel"
+                id="customerPhone"
+                placeholder="+250 78X XXX XXX"
+            >
+
+        </div>
+
+        <button class="btn-primary btn-pay">
+            Continue Payment
+        </button>
+
+    </div>
+</div>
        <!-- =========================
          JAVASCRIPT
     ========================== -->
