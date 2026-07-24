@@ -1833,3 +1833,89 @@ body.dark-mode .skeleton{
 .service-card .btn-primary{
     margin-bottom:20px;
 }
+/* =========================================
+   PAYMENT METHODS
+========================================= */
+
+.payment-methods{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+    margin:25px 0;
+}
+
+.payment-option{
+    cursor:pointer;
+    display:block;
+}
+
+.payment-option input{
+    display:none;
+}
+
+.payment-card{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:16px 18px;
+    background:var(--white);
+    border:2px solid var(--border-color);
+    border-radius:16px;
+    transition:var(--transition);
+}
+
+.payment-left{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.payment-left strong{
+    display:block;
+    font-size:1rem;
+    color:var(--text-dark);
+}
+
+.payment-left small{
+    display:block;
+    color:var(--text-light);
+    margin-top:4px;
+}
+
+.payment-option input:checked + .payment-card{
+    border-color:var(--primary);
+    background:rgba(46,125,50,.06);
+    box-shadow:0 8px 20px rgba(46,125,50,.15);
+}
+
+.payment-card:hover{
+    transform:translateY(-3px);
+    border-color:var(--primary);
+}
+
+.recommended-badge{
+    background:#4CAF50;
+    color:#fff;
+    font-size:.72rem;
+    padding:5px 10px;
+    border-radius:20px;
+    font-weight:700;
+}
+
+body.dark-mode .payment-card{
+    background:#242424;
+}
+
+body.dark-mode .payment-option input:checked + .payment-card{
+    background:rgba(76,175,80,.12);
+}
+
+.payment-logo{
+    font-size:2rem;
+}
+
+.payment-divider{
+    text-align:center;
+    color:var(--text-light);
+    margin:20px 0;
+}
