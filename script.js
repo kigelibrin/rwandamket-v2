@@ -166,3 +166,47 @@ function showHeroSlide(index) {
     }
 
 }
+// ===========================================
+// SEARCH
+// ===========================================
+
+function initSearch() {
+
+    const searchInput = document.getElementById("marketSearch");
+
+    if (!searchInput) return;
+
+    searchInput.addEventListener("input", function () {
+
+        const keyword = this.value.trim().toLowerCase();
+
+        const filteredMarkets = markets.filter(market => {
+
+            const name = (market.market_name || "").toLowerCase();
+            const description = (market.description || "").toLowerCase();
+            const category = (market.category || "").toLowerCase();
+
+            return (
+                name.includes(keyword) ||
+                description.includes(keyword) ||
+                category.includes(keyword)
+            );
+
+        });
+
+        renderMarkets(filteredMarkets);
+
+    });
+
+}
+function clearSearch() {
+
+    const input = document.getElementById("marketSearch");
+
+    if (input) {
+        input.value = "";
+    }
+
+    renderMarkets(markets);
+
+}
