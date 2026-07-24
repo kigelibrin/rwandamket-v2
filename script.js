@@ -275,3 +275,98 @@ function filterMarkets() {
     renderMarkets(filtered);
 
 }
+// ===========================================
+// FEATURED MARKETS
+// ===========================================
+
+async function loadFeaturedMarkets() {
+
+    const container = document.getElementById("featuredMarkets");
+
+    if (!container) return;
+
+    container.innerHTML = `
+        <div class="state-message">
+            Loading featured markets...
+        </div>
+    `;
+
+    try {
+
+        const { data, error } = await db
+            .from("markets")
+            .select("*")
+            .eq("is_featured", true)
+            .eq("is_active", true)
+            .order("created_at", { ascending: false });
+
+        if (error) throw error;
+
+        featuredMarkets = data || [];
+
+        if (featuredMarkets.length === 0) {
+
+            container.innerHTML = `
+                <div class="state-message">
+                    No featured markets available.
+                </div>
+            `;
+
+            return;
+
+        }
+
+        renderFeaturedMarkets(featuredMarkets);
+
+    } catch (err) {
+
+        console.error(err);
+
+        container.innerHTML = `
+            <div class="state-message">
+                Failed to load featured markets.
+            </div>
+        `;
+
+    }
+
+}
+function renderFeaturedMarkets(data) {
+
+    const container = document.getElementById("featuredMarkets");
+
+    container.innerHTML = "";
+
+    data.forEach(market => {
+
+        container.innerHTML += `
+
+        <div class="market-card">
+
+            <img src="${market.image_url || 'image.png'}"
+                 alt="${market.market_name}">
+
+            <h4>${market.market_name}</h4>
+
+            <p>${market.description || ""}</p>
+
+            <button
+                class="btn-primary"
+                onclick="openMarket('${market.id}')">
+
+                Explore
+
+            </button>
+
+        </div>
+
+        `;
+
+    });
+
+}
+function openMarket(id) {
+
+    window.location.href = `market.html?id=${id}`;
+
+}
