@@ -89,3 +89,80 @@ function initTheme() {
     });
 
 }
+
+// ===========================================
+// HERO SLIDER
+// ===========================================
+
+function initHeroSlider() {
+
+    const slides = document.querySelectorAll(".hero-slide");
+    const dots = document.querySelectorAll(".hero-dot");
+
+    if (!slides.length) return;
+
+    currentHeroSlide = 0;
+
+    showHeroSlide(currentHeroSlide);
+
+    heroInterval = setInterval(() => {
+
+        currentHeroSlide++;
+
+        if (currentHeroSlide >= slides.length) {
+            currentHeroSlide = 0;
+        }
+
+        showHeroSlide(currentHeroSlide);
+
+    }, 5000);
+
+    dots.forEach((dot, index) => {
+
+        dot.addEventListener("click", () => {
+
+            currentHeroSlide = index;
+
+            showHeroSlide(index);
+
+            clearInterval(heroInterval);
+
+            heroInterval = setInterval(() => {
+
+                currentHeroSlide++;
+
+                if (currentHeroSlide >= slides.length) {
+                    currentHeroSlide = 0;
+                }
+
+                showHeroSlide(currentHeroSlide);
+
+            }, 5000);
+
+        });
+
+    });
+
+}
+function showHeroSlide(index) {
+
+    const slides = document.querySelectorAll(".hero-slide");
+    const dots = document.querySelectorAll(".hero-dot");
+
+    slides.forEach(slide => {
+        slide.classList.remove("active");
+    });
+
+    dots.forEach(dot => {
+        dot.classList.remove("active");
+    });
+
+    if (slides[index]) {
+        slides[index].classList.add("active");
+    }
+
+    if (dots[index]) {
+        dots[index].classList.add("active");
+    }
+
+}
