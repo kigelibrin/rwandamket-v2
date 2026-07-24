@@ -210,3 +210,68 @@ function clearSearch() {
     renderMarkets(markets);
 
 }
+// ===========================================
+// CATEGORY FILTERS
+// ===========================================
+
+function initCategoryFilters() {
+
+    const chips = document.querySelectorAll(".filter-chip");
+
+    if (!chips.length) return;
+
+    chips.forEach(chip => {
+
+        chip.addEventListener("click", () => {
+
+            chips.forEach(c => c.classList.remove("active"));
+
+            chip.classList.add("active");
+
+            selectedCategory = chip.dataset.category;
+
+            filterMarkets();
+
+        });
+
+    });
+
+}
+function filterMarkets() {
+
+    let filtered = [...markets];
+
+    // Category filter
+    if (selectedCategory !== "all") {
+
+        filtered = filtered.filter(market =>
+
+            (market.category || "").toLowerCase() ===
+            selectedCategory.toLowerCase()
+
+        );
+
+    }
+
+    // Search filter
+    const search = document
+        .getElementById("marketSearch")
+        ?.value.trim()
+        .toLowerCase();
+
+    if (search) {
+
+        filtered = filtered.filter(market => {
+
+            return (
+                (market.market_name || "").toLowerCase().includes(search) ||
+                (market.description || "").toLowerCase().includes(search)
+            );
+
+        });
+
+    }
+
+    renderMarkets(filtered);
+
+}
