@@ -302,4 +302,23 @@ async function getProduct(productId) {
     return data;
 
 }
+// ========================================
+// UPDATE PAYMENT STATUS
+// ========================================
 
+async function updatePaymentStatus(orderId, status) {
+
+    const { data, error } = await db
+        .from("orders")
+        .update({
+            payment_status: status
+        })
+        .eq("id", orderId)
+        .select()
+        .single();
+
+    if (error) handleError(error);
+
+    return data;
+
+}
