@@ -204,19 +204,25 @@ async function searchMarkets(searchTerm) {
 }
 
 // ========================================
-// ORDERS
+// CREATE ORDER
 // ========================================
 
-async function createOrder(orderData) {
+async function createOrder(order) {
+
     const { data, error } = await db
+
         .from("orders")
-        .insert(orderData)
+
+        .insert([order])
+
         .select()
+
         .single();
 
     if (error) handleError(error);
 
     return data;
+
 }
 
 // ========================================
