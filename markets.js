@@ -107,15 +107,33 @@ function createMarketCard(market) {
             loading="lazy"
         >
 
-        <h3>${market.name}</h3>
+       <h3>
+    ${market.name}
+    ${market.verified ? "✔️" : ""}
+</h3>
 
         <p>${market.description ?? ""}</p>
 
         <div class="market-meta">
 
-            <span>⭐ ${market.rating}</span>
+           <span>⭐ ${market.rating ?? "5.0"}</span>
 
-            <span>${market.total_reviews} Reviews</span>
+<span>${market.total_reviews ?? 0} Reviews</span>
+        </div>
+
+        <div class="market-meta">
+
+            <span>
+
+               ${market.is_open ? "🟢 Open Now" : "🔴 Closed"}
+
+            </span>
+
+            <span>
+
+                🚴 ${market.delivery_time ?? "30–45 min"}
+
+            </span>
 
         </div>
 
@@ -123,32 +141,14 @@ function createMarketCard(market) {
 
             <span>
 
-                ${market.is_open ? "🟢 Open" : "🔴 Closed"}
-
-            </span>
-
-            <span>
-
-                🚴 ${market.delivery_time}
-
-            </span>
-
-        </div>
-
-        <div class="market-meta">
-
-            <span>
-
-                Delivery:
-                ${market.delivery_fee} RWF
-
+               Delivery:
+${market.delivery_fee ?? 0} RWF
             </span>
 
             <span>
 
                 Min:
-                ${market.minimum_order} RWF
-
+${market.minimum_order ?? 0} RWF
             </span>
 
         </div>
@@ -196,5 +196,14 @@ function showMarketError(container) {
     container.innerHTML =
 
         emptyState("Unable to load markets.");
+
+}
+// ========================================
+// OPEN MARKET
+// ========================================
+
+function openMarket(id) {
+
+    console.log("Opening market:", id);
 
 }
