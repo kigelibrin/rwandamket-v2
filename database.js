@@ -265,3 +265,35 @@ async function getUserFavourites(userId) {
 
     return data;
 }
+// ========================================
+// GET SINGLE PRODUCT
+// ========================================
+
+async function getProduct(productId) {
+
+    const { data, error } = await db
+        .from("products")
+        .select(`
+            id,
+            market_id,
+            name,
+            description,
+            price,
+            image_url,
+            featured,
+            stock_quantity,
+            discount_percentage,
+            is_available,
+            category_id,
+            sku,
+            unit
+        `)
+        .eq("id", productId)
+        .single();
+
+    if (error) handleError(error);
+
+    return data;
+
+}
+
