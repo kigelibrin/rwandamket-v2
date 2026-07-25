@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Payment | RWANDAMKET</title>
+
+<link rel="stylesheet"
+href="style.css">
+
+</head>
+
+<body>
+
+<section class="payment-page">
+
+<div class="container">
+
+<h1>
+
+Choose Payment Method
+
+</h1>
+
+<div class="payment-grid">
+
+<div
+id="momo"
+class="payment-method"
+onclick="selectPaymentMethod('momo')">
+
+📱
+
+<h3>
+
+MTN MoMo
+
+</h3>
+
+</div>
+
+<div
+id="airtel"
+class="payment-method"
+onclick="selectPaymentMethod('airtel')">
+
+📱
+
+<h3>
+
+Airtel Money
+
+</h3>
+
+</div>
+
+<div
+id="card"
+class="payment-method"
+onclick="selectPaymentMethod('card')">
+
+💳
+
+<h3>
+
+Bank Card
+
+</h3>
+
+</div>
+
+</div>
+
+<button
+class="btn-primary"
+id="payButton">
+
+Pay Now
+
+</button>
+
+</div>
+
+</section>
+
+<script src="config.js"></script>
+<script src="database.js"></script>
+<script src="payment.js"></script>
+
+<script>
+
+const params =
+new URLSearchParams(window.location.search);
+
+const orderId =
+params.get("order");
+
+document
+.getElementById("payButton")
+.addEventListener("click", () => {
+
+payOrder(orderId);
+
+});
+
+</script>
+
+</body>
+
+</html>
