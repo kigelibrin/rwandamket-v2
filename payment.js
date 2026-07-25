@@ -121,12 +121,24 @@ async function processCard(orderId) {
 // PAYMENT SUCCESS
 // ========================================
 
-function paymentSuccess(orderId) {
+async function paymentSuccess(orderId) {
 
-    alert("Payment completed successfully.");
+    try {
 
-    window.location.href =
-        `success.html?order=${orderId}`;
+        await updatePaymentStatus(orderId, "paid");
+
+        alert("Payment completed successfully.");
+
+        window.location.href =
+            `success.html?order=${orderId}`;
+
+    } catch (error) {
+
+        console.error(error);
+
+        alert("Unable to update payment status.");
+
+    }
 
 }
 
