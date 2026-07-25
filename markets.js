@@ -3,127 +3,198 @@
 // Markets Module
 // ========================================
 
-const marketsContainer = document.getElementById("marketsGrid");
-const featuredContainer = document.getElementById("featuredMarketsGrid");
+const marketsGrid = document.getElementById("marketsGrid");
+const featuredMarketsGrid = document.getElementById("featuredMarketsGrid");
 
 // ========================================
-// Load All Markets
+// LOAD ALL MARKETS
 // ========================================
 
 async function loadMarkets() {
     try {
+
         const markets = await getMarkets();
 
         renderMarkets(markets);
 
     } catch (error) {
-        console.error("Failed to load markets:", error);
 
-        if (marketsContainer) {
-            marketsContainer.innerHTML = `
-                <div class="state-message">
-                    Failed to load markets.
-                </div>
-            `;
-        }
+        console.error(error);
+
+        showMarketError(marketsGrid);
+
     }
 }
 
 // ========================================
-// Load Featured Markets
+// LOAD FEATURED MARKETS
 // ========================================
 
 async function loadFeaturedMarkets() {
+
     try {
+
         const markets = await getFeaturedMarkets();
 
         renderFeaturedMarkets(markets);
 
     } catch (error) {
-        console.error("Failed to load featured markets:", error);
+
+        console.error(error);
+
+        showMarketError(featuredMarketsGrid);
+
     }
+
 }
 
 // ========================================
-// Render All Markets
+// RENDER ALL MARKETS
 // ========================================
 
 function renderMarkets(markets) {
 
-    if (!marketsContainer) return;
+    if (!marketsGrid) return;
 
     if (!markets.length) {
 
-        marketsContainer.innerHTML = `
-            <div class="state-message">
-                No markets available.
-            </div>
-        `;
+        marketsGrid.innerHTML = emptyState("No markets available.");
 
         return;
+
     }
 
-    marketsContainer.innerHTML =
+    marketsGrid.innerHTML =
         markets.map(createMarketCard).join("");
+
 }
 
 // ========================================
-// Render Featured Markets
+// RENDER FEATURED MARKETS
 // ========================================
 
 function renderFeaturedMarkets(markets) {
 
-    if (!featuredContainer) return;
+    if (!featuredMarketsGrid) return;
 
     if (!markets.length) {
 
-        featuredContainer.innerHTML = `
-            <div class="state-message">
-                No featured markets.
-            </div>
-        `;
+        featuredMarketsGrid.innerHTML =
+            emptyState("No featured markets.");
 
         return;
+
     }
 
-    featuredContainer.innerHTML =
+    featuredMarketsGrid.innerHTML =
         markets.map(createMarketCard).join("");
+
 }
 
 // ========================================
-// Market Card
+// MARKET CARD
 // ========================================
 
 function createMarketCard(market) {
 
     return `
-        <div class="market-card">
 
-            <img
-                src="${market.image_url || 'images/placeholder.jpg'}"
-                alt="${market.name}"
-            >
+    <article class="market-card">
 
-            <h4>${market.name}</h4>
+        <img
+            src="${market.image_url || 'images/placeholder.jpg'}"
+            alt="${market.name}"
+            loading="lazy"
+        >
 
-            <p>${market.description || ""}</p>
+        <h3>${market.name}</h3>
 
-            <span class="price-tag">
-                ⭐ ${market.rating ?? 5.0}
-            </span>
+        <p>${market.description ?? ""}</p>
 
-            <p>
-                ${market.delivery_time || "30–45 min"}
-            </p>
+        <div class="market-meta">
 
-            <button
-                class="btn-primary"
-                onclick="openMarket(${market.id})">
+            <span>⭐ ${market.rating}</span>
 
-                View Market
-
-            </button>
+            <span>${market.total_reviews} Reviews</span>
 
         </div>
+
+        <div class="market-meta">
+
+            <span>
+
+                ${market.is_open ? "🟢 Open" : "🔴 Closed"}
+
+            </span>
+
+            <span>
+
+                🚴 ${market.delivery_time}
+
+            </span>
+
+        </div>
+
+        <div class="market-meta">
+
+            <span>
+
+                Delivery:
+                ${market.delivery_fee} RWF
+
+            </span>
+
+            <span>
+
+                Min:
+                ${market.minimum_order} RWF
+
+            </span>
+
+        </div>
+
+        <button
+            class="btn-primary"
+            onclick="openMarket(${market.id})">
+
+            View Market
+
+        </button>
+
+    </article>
+
     `;
+
+}
+
+// ========================================
+// EMPTY STATE
+// ========================================
+
+function emptyState(message) {
+
+    return `
+
+        <div class="state-message">
+
+            ${message}
+
+        </div>
+
+    `;
+
+}
+
+// ========================================
+// ERROR STATE
+// ========================================
+
+function showMarketError(container) {
+
+    if (!container) return;
+
+    container.innerHTML =
+
+        emptyState("Unable to load markets.");
+
 }
