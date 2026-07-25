@@ -201,9 +201,9 @@ function showMarketError(container) {
 // ========================================
 // OPEN MARKET
 // ========================================
-
 function openMarket(id) {
 
-    console.log("Opening market:", id);
+    window.location.href =
+        `market-details.html?id=${id}`;
 
 }
