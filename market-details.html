@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Market Details | RWANDAMKET</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<!-- ========================================
+HEADER
+======================================== -->
+
+<header class="header">
+
+    <a href="index.html" class="logo">
+
+        RWANDAMKET
+
+    </a>
+
+    <a href="index.html" class="btn-secondary">
+
+        ← Back
+
+    </a>
+
+</header>
+
+<!-- ========================================
+MARKET HERO
+======================================== -->
+
+<section class="market-hero">
+
+    <img
+        id="marketCover"
+        class="market-cover"
+        src="assets/images/placeholder.jpg"
+        alt="Market">
+
+    <div class="market-overlay">
+
+        <h1 id="marketName">
+
+            Loading...
+
+        </h1>
+
+        <p id="marketCategory">
+
+            Category
+
+        </p>
+
+        <div class="market-badges">
+
+            <span id="marketRating">
+
+                ⭐ 5.0
+
+            </span>
+
+            <span id="marketReviews">
+
+                0 Reviews
+
+            </span>
+
+            <span id="marketStatus">
+
+                🟢 Open
+
+            </span>
+
+            <span id="marketVerified">
+
+                ✔ Verified
+
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ========================================
+MARKET INFORMATION
+======================================== -->
+
+<section class="market-information">
+
+    <div class="container">
+
+        <h2>
+
+            About
+
+        </h2>
+
+        <p id="marketDescription">
+
+            Loading description...
+
+        </p>
+
+        <div class="market-info-grid">
+
+            <div>
+
+                📍
+
+                <span id="marketLocation"></span>
+
+            </div>
+
+            <div>
+
+                🚴
+
+                <span id="marketDeliveryTime"></span>
+
+            </div>
+
+            <div>
+
+                💰
+
+                <span id="marketDeliveryFee"></span>
+
+            </div>
+
+            <div>
+
+                🛒
+
+                <span id="marketMinimumOrder"></span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ========================================
+PRODUCTS
+======================================== -->
+
+<section class="products-section">
+
+    <div class="container">
+
+        <h2>
+
+            Products
+
+        </h2>
+
+        <div
+            id="productsGrid"
+            class="products-grid">
+
+            <div class="state-message">
+
+                Loading products...
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ========================================
+FLOATING CART
+======================================== -->
+
+<div class="cart-bar">
+
+    <div>
+
+        <strong>
+
+            Cart
+
+        </strong>
+
+        <p>
+
+            <span id="cartCount">
+
+                0
+
+            </span>
+
+            item(s)
+
+        </p>
+
+    </div>
+
+    <button
+        class="btn-primary"
+        id="checkoutButton">
+
+        Checkout
+
+    </button>
+
+</div>
+
+<!-- ========================================
+FOOTER
+======================================== -->
+
+<footer class="footer">
+
+    <p>
+
+        © 2026 RWANDAMKET
+
+    </p>
+
+</footer>
+
+<!-- ========================================
+SCRIPTS
+======================================== -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="config.js"></script>
+
+<script src="database.js"></script>
+
+<script src="products.js"></script>
+
+<script src="market-details.js"></script>
+
+</body>
+
+</html>
