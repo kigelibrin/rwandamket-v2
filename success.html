@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Order Successful | RWANDAMKET</title>
+
+<link
+rel="stylesheet"
+href="style.css">
+
+</head>
+
+<body>
+
+<section class="success-page">
+
+<div class="container">
+
+<div class="success-card">
+
+<div class="success-icon">
+
+✅
+
+</div>
+
+<h1>
+
+Payment Successful
+
+</h1>
+
+<p>
+
+Your order has been received successfully.
+
+</p>
+
+<p>
+
+Thank you for choosing RWANDAMKET.
+
+</p>
+
+<div class="order-info">
+
+<p>
+
+Order ID
+
+</p>
+
+<h3 id="orderId">
+
+Loading...
+
+</h3>
+
+</div>
+
+<a
+href="index.html"
+class="btn-primary">
+
+Continue Shopping
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<script>
+
+const params =
+new URLSearchParams(window.location.search);
+
+document.getElementById("orderId").textContent =
+params.get("order") || "Unknown";
+
+</script>
+
+</body>
+
+</html>
