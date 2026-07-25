@@ -29,13 +29,7 @@ async function addToCart(productId) {
 
     try {
 
-        const { data: product, error } = await window._supabase
-            .from("products")
-            .select("*")
-            .eq("id", productId)
-            .single();
-
-        if (error) throw error;
+        const product = await getProduct(productId);
 
         const existing = cart.find(
             item => item.id === product.id
