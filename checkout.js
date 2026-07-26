@@ -72,6 +72,10 @@ async function submitOrder(customer) {
 
         const createdOrder =
             await createOrder(order);
+        await createOrderItems(
+    order.id,
+    cart
+);
 
         console.log(createdOrder);
 
