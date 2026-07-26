@@ -546,3 +546,31 @@ async function updateProduct(productId, product) {
     return data;
 
 }
+// ========================================
+// GET VENDOR ORDERS
+// ========================================
+
+async function getVendorOrders(vendorId){
+
+const {data,error}=await db
+
+.from("orders")
+
+.select(`
+*
+,
+markets!inner(vendor_id)
+`)
+
+.eq("markets.vendor_id",vendorId)
+
+.order(
+"created_at",
+{ascending:false}
+);
+
+if(error) handleError(error);
+
+return data;
+
+}
