@@ -112,11 +112,10 @@ Delete
 
 }
 
-function editProduct(productId){
+function editProduct(productId) {
 
-alert(
-"Edit Product: "+productId
-);
+    window.location.href =
+        `add-product.html?id=${productId}`;
 
 }
 
