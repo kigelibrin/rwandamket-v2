@@ -322,3 +322,74 @@ async function updatePaymentStatus(orderId, status) {
     return data;
 
 }
+// ========================================
+// REGISTER USER
+// ========================================
+
+async function register(
+fullName,
+email,
+phone,
+password
+){
+
+const {data,error}=await db.auth.signUp({
+
+email,
+
+password
+
+});
+
+if(error) handleError(error);
+
+await db
+.from("profiles")
+.insert({
+
+id:data.user.id,
+
+full_name:fullName,
+
+phone:phone
+
+});
+
+return data;
+
+}
+
+// ========================================
+// LOGIN USER
+// ========================================
+
+async function login(
+email,
+password
+){
+
+const {data,error}=await db.auth.signInWithPassword({
+
+email,
+
+password
+
+});
+
+if(error) handleError(error);
+
+return data;
+
+}
+
+// ========================================
+// LOGOUT USER
+// ========================================
+
+async function logout(){
+
+const {error}=await db.auth.signOut();
+
+if(error) handleError(error);
+
+}
