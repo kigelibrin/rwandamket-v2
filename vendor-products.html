@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Vendor Products | RWANDAMKET</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<header class="header">
+
+<div class="container">
+
+<h1>My Products</h1>
+
+<a
+href="vendor-dashboard.html"
+class="btn-secondary">
+
+← Dashboard
+
+</a>
+
+</div>
+
+</header>
+
+<main class="container">
+
+<section class="vendor-actions">
+
+<button
+class="btn-primary"
+id="newProductButton">
+
++ Add Product
+
+</button>
+
+</section>
+
+<section>
+
+<div
+id="vendorProductsGrid"
+class="products-grid">
+
+<div class="state-message">
+
+Loading products...
+
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="config.js"></script>
+
+<script src="database.js"></script>
+
+<script src="vendor-products.js"></script>
+
+</body>
+
+</html>
