@@ -132,6 +132,7 @@ ${driver.vehicle_plate}
 `;
 
 }
+  renderTimeline(booking.booking_status);
 
 }
 async function updateBookingStatus(status){
