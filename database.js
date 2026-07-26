@@ -574,3 +574,33 @@ if(error) handleError(error);
 return data;
 
 }
+// ========================================
+// CREATE ORDER ITEMS
+// ========================================
+
+async function createOrderItems(orderId, cartItems) {
+
+    const orderItems = cartItems.map(item => ({
+
+        order_id: orderId,
+
+        product_id: item.id,
+
+        quantity: item.quantity,
+
+        unit_price: item.price,
+
+        subtotal: item.price * item.quantity
+
+    }));
+
+    const { data, error } = await db
+        .from("order_items")
+        .insert(orderItems)
+        .select();
+
+    if (error) handleError(error);
+
+    return data;
+
+}
