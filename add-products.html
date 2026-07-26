@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Add Product | RWANDAMKET</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<header class="header">
+
+<div class="container">
+
+<h1>Add Product</h1>
+
+<a
+href="vendor-products.html"
+class="btn-secondary">
+
+← Back
+
+</a>
+
+</div>
+
+</header>
+
+<main class="container">
+
+<form
+id="productForm"
+class="product-form">
+
+<input
+type="text"
+id="productName"
+placeholder="Product Name"
+required>
+
+<textarea
+id="productDescription"
+placeholder="Description"></textarea>
+
+<input
+type="number"
+id="productPrice"
+placeholder="Price (RWF)"
+required>
+
+<input
+type="number"
+id="stockQuantity"
+placeholder="Stock Quantity"
+required>
+
+<input
+type="number"
+id="discountPercentage"
+placeholder="Discount (%)"
+value="0">
+
+<input
+type="text"
+id="productSku"
+placeholder="SKU">
+
+<input
+type="text"
+id="productUnit"
+placeholder="Unit (Plate, Bottle, Kg...)">
+
+<select
+id="marketSelect"
+required>
+
+<option value="">
+
+Select Market
+
+</option>
+
+</select>
+
+<select
+id="categorySelect">
+
+<option value="">
+
+Select Category
+
+</option>
+
+</select>
+
+<input
+type="url"
+id="imageUrl"
+placeholder="Image URL">
+
+<label>
+
+<input
+type="checkbox"
+id="featured">
+
+Featured Product
+
+</label>
+
+<label>
+
+<input
+type="checkbox"
+id="available"
+checked>
+
+Available
+
+</label>
+
+<button
+type="submit"
+class="btn-primary">
+
+Save Product
+
+</button>
+
+</form>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="config.js"></script>
+
+<script src="database.js"></script>
+
+<script src="add-product.js"></script>
+
+</body>
+
+</html>
