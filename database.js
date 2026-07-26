@@ -410,3 +410,44 @@ async function getVendorProfile(userId) {
     return data;
 
 }
+// ========================================
+// GET VENDOR PRODUCTS
+// ========================================
+
+async function getVendorProducts(vendorId){
+
+const {data,error}=await db
+
+.from("products")
+
+.select(`
+*
+,
+markets!inner(vendor_id)
+`)
+
+.eq("markets.vendor_id",vendorId);
+
+if(error) handleError(error);
+
+return data;
+
+}
+
+// ========================================
+// DELETE PRODUCT
+// ========================================
+
+async function removeProduct(productId){
+
+const {error}=await db
+
+.from("products")
+
+.delete()
+
+.eq("id",productId);
+
+if(error) handleError(error);
+
+}
