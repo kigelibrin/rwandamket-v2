@@ -98,3 +98,49 @@ booking_status:status
 location.reload();
 
 }
+async function loadTransportStaff(){
+
+const {
+
+data:{user}
+
+}=await db.auth.getUser();
+
+const company=
+
+await getVendorProfile(user.id);
+
+const drivers=
+
+await getDrivers(company.id);
+
+const select=
+
+document.getElementById(
+
+"staffSelect"
+
+);
+
+select.innerHTML=
+
+'<option value="">Choose Driver</option>';
+
+drivers.forEach(driver=>{
+
+select.innerHTML+=`
+
+<option value="${driver.id}">
+
+${driver.full_name}
+
+(${driver.vehicle_plate})
+
+</option>
+
+`;
+
+});
+
+}
+
