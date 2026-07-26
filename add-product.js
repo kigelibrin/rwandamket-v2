@@ -12,6 +12,12 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     await loadCategories();
 
+    if (editingProductId) {
+
+        await loadProductForEditing();
+
+    }
+
 });
 
 const productForm =
