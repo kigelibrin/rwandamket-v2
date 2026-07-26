@@ -451,3 +451,24 @@ const {error}=await db
 if(error) handleError(error);
 
 }
+// ========================================
+// CREATE PRODUCT
+// ========================================
+
+async function createProduct(product){
+
+const {data,error}=await db
+
+.from("products")
+
+.insert([product])
+
+.select()
+
+.single();
+
+if(error) handleError(error);
+
+return data;
+
+}
