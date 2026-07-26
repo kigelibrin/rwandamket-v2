@@ -604,3 +604,27 @@ async function createOrderItems(orderId, cartItems) {
     return data;
 
 }
+// ========================================
+// GET TRANSPORT BOOKINGS
+// ========================================
+
+async function getTransportBookings(companyId){
+
+const {data,error}=await db
+
+.from("transport_bookings")
+
+.select("*")
+
+.eq("company_id",companyId)
+
+.order(
+"pickup_datetime",
+{ascending:true}
+);
+
+if(error) handleError(error);
+
+return data;
+
+}
