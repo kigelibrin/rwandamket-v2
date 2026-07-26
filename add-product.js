@@ -1,3 +1,6 @@
+const params = new URLSearchParams(window.location.search);
+
+const editingProductId = params.get("id");
 // ========================================
 // RWANDAMKET
 // Add Product
