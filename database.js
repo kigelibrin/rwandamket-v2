@@ -510,3 +510,39 @@ if(error) handleError(error);
 return data;
 
 }
+// ========================================
+// GET SINGLE PRODUCT
+// ========================================
+
+async function getProductById(productId) {
+
+    const { data, error } = await db
+        .from("products")
+        .select("*")
+        .eq("id", productId)
+        .single();
+
+    if (error) handleError(error);
+
+    return data;
+
+}
+
+// ========================================
+// UPDATE PRODUCT
+// ========================================
+
+async function updateProduct(productId, product) {
+
+    const { data, error } = await db
+        .from("products")
+        .update(product)
+        .eq("id", productId)
+        .select()
+        .single();
+
+    if (error) handleError(error);
+
+    return data;
+
+}
