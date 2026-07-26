@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Booking Details</title>
+
+<link rel="stylesheet"
+href="style.css">
+
+</head>
+
+<body>
+
+<header class="header">
+
+<div class="container">
+
+<h1>Booking Details</h1>
+
+<a
+href="transport-bookings.html"
+class="btn-secondary">
+
+← Back
+
+</a>
+
+</div>
+
+</header>
+
+<main class="container">
+
+<section
+id="bookingDetails"
+class="dashboard-card">
+
+Loading...
+
+</section>
+
+<section
+class="product-form">
+
+<label>
+
+Assign Staff
+
+</label>
+
+<select
+id="staffSelect">
+
+<option value="">
+
+Choose Staff
+
+</option>
+
+</select>
+
+<button
+id="assignButton"
+class="btn-primary">
+
+Assign Staff
+
+</button>
+
+<hr>
+
+<button
+class="btn-primary"
+onclick="updateBookingStatus('accepted')">
+
+Accept Booking
+
+</button>
+
+<button
+class="btn-primary"
+onclick="updateBookingStatus('staff_assigned')">
+
+Staff Assigned
+
+</button>
+
+<button
+class="btn-primary"
+onclick="updateBookingStatus('en_route')">
+
+En Route
+
+</button>
+
+<button
+class="btn-primary"
+onclick="updateBookingStatus('picked_up')">
+
+Passenger Picked Up
+
+</button>
+
+<button
+class="btn-primary"
+onclick="updateBookingStatus('completed')">
+
+Complete Trip
+
+</button>
+
+</section>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="config.js"></script>
+
+<script src="database.js"></script>
+
+<script src="transport-booking-details.js"></script>
+
+</body>
+
+</html>
