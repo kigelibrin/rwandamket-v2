@@ -248,4 +248,68 @@ alert(
 location.reload();
 
 });
+function renderTimeline(status){
 
+const steps=[
+
+"pending",
+
+"accepted",
+
+"driver_assigned",
+
+"en_route",
+
+"picked_up",
+
+"completed"
+
+];
+
+const names={
+
+pending:"Booking Received",
+
+accepted:"Accepted",
+
+driver_assigned:"Driver Assigned",
+
+en_route:"Driver En Route",
+
+picked_up:"Passenger Picked Up",
+
+completed:"Trip Completed"
+
+};
+
+const current=
+
+steps.indexOf(status);
+
+document.getElementById(
+
+"bookingTimeline"
+
+).innerHTML=
+
+steps.map(
+
+(step,index)=>`
+
+<div class="timeline-step ${index<=current?"active":""}">
+
+<div class="timeline-dot"></div>
+
+<div>
+
+${names[step]}
+
+</div>
+
+</div>
+
+`
+
+).join("");
+
+}
