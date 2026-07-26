@@ -143,4 +143,55 @@ ${driver.full_name}
 });
 
 }
+document
+
+.getElementById(
+
+"assignButton"
+
+)
+
+.addEventListener(
+
+"click",
+
+async()=>{
+
+const driver=
+
+document.getElementById(
+
+"staffSelect"
+
+).value;
+
+if(!driver){
+
+alert(
+
+"Select a driver."
+
+);
+
+return;
+
+}
+
+await assignDriver(
+
+bookingId,
+
+driver
+
+);
+
+alert(
+
+"Driver assigned."
+
+);
+
+location.reload();
+
+});
 
