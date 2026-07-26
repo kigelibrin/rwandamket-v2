@@ -81,3 +81,20 @@ ${booking.booking_status}
 `;
 
 }
+async function updateBookingStatus(status){
+
+await updateTransportBooking(
+
+bookingId,
+
+{
+
+booking_status:status
+
+}
+
+);
+
+location.reload();
+
+}
