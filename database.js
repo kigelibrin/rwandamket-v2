@@ -696,3 +696,38 @@ if(error) handleError(error);
 return data;
 
 }
+// ========================================
+// ASSIGN DRIVER
+// ========================================
+
+async function assignDriver(
+
+bookingId,
+
+driverId
+
+){
+
+const {data,error}=await db
+
+.from("transport_bookings")
+
+.update({
+
+assigned_driver_id:driverId,
+
+booking_status:"driver_assigned"
+
+})
+
+.eq("id",bookingId)
+
+.select()
+
+.single();
+
+if(error) handleError(error);
+
+return data;
+
+}
