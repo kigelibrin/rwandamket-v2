@@ -88,3 +88,57 @@ alert(error.message);
 }
 
 }
+async function loadVendorMarkets(){
+
+const {
+data:{user}
+}=await db.auth.getUser();
+
+const vendor=
+await getVendorProfile(user.id);
+
+const markets=
+await getVendorMarkets(vendor.id);
+
+const select=
+document.getElementById("marketSelect");
+
+markets.forEach(market=>{
+
+select.innerHTML+=`
+
+<option value="${market.id}">
+
+${market.name}
+
+</option>
+
+`;
+
+});
+
+}
+
+async function loadCategories(){
+
+const categories=
+await getCategories();
+
+const select=
+document.getElementById("categorySelect");
+
+categories.forEach(category=>{
+
+select.innerHTML+=`
+
+<option value="${category.id}">
+
+${category.name}
+
+</option>
+
+`;
+
+});
+
+}
