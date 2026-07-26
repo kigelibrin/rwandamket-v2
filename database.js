@@ -472,3 +472,41 @@ if(error) handleError(error);
 return data;
 
 }
+// ========================================
+// GET VENDOR MARKETS
+// ========================================
+
+async function getVendorMarkets(vendorId){
+
+const {data,error}=await db
+
+.from("markets")
+
+.select("*")
+
+.eq("vendor_id",vendorId);
+
+if(error) handleError(error);
+
+return data;
+
+}
+// ========================================
+// GET CATEGORIES
+// ========================================
+
+async function getCategories(){
+
+const {data,error}=await db
+
+.from("categories")
+
+.select("*")
+
+.order("name");
+
+if(error) handleError(error);
+
+return data;
+
+}
