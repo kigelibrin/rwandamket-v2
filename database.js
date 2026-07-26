@@ -756,3 +756,24 @@ if(error) handleError(error);
 return data;
 
 }
+// ========================================
+// GET DRIVER
+// ========================================
+
+async function getDriver(id){
+
+const {data,error}=await db
+
+.from("drivers")
+
+.select("*")
+
+.eq("id",id)
+
+.single();
+
+if(error) handleError(error);
+
+return data;
+
+}
