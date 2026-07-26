@@ -151,3 +151,49 @@ ${category.name}
 });
 
 }
+// ========================================
+// LOAD PRODUCT FOR EDITING
+// ========================================
+
+async function loadProductForEditing() {
+
+    const product =
+        await getProductById(editingProductId);
+
+    productName.value =
+        product.name;
+
+    productDescription.value =
+        product.description || "";
+
+    productPrice.value =
+        product.price;
+
+    stockQuantity.value =
+        product.stock_quantity;
+
+    discountPercentage.value =
+        product.discount_percentage;
+
+    productSku.value =
+        product.sku || "";
+
+    productUnit.value =
+        product.unit || "";
+
+    imageUrl.value =
+        product.image_url || "";
+
+    marketSelect.value =
+        product.market_id;
+
+    categorySelect.value =
+        product.category_id || "";
+
+    featured.checked =
+        product.featured;
+
+    available.checked =
+        product.is_available;
+
+}
