@@ -628,3 +628,24 @@ if(error) handleError(error);
 return data;
 
 }
+// ========================================
+// GET BOOKING
+// ========================================
+
+async function getTransportBooking(id){
+
+const {data,error}=await db
+
+.from("transport_bookings")
+
+.select("*")
+
+.eq("id",id)
+
+.single();
+
+if(error) handleError(error);
+
+return data;
+
+}
