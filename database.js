@@ -393,3 +393,20 @@ const {error}=await db.auth.signOut();
 if(error) handleError(error);
 
 }
+// ========================================
+// GET VENDOR PROFILE
+// ========================================
+
+async function getVendorProfile(userId) {
+
+    const { data, error } = await db
+        .from("vendor_profiles")
+        .select("*")
+        .eq("user_id", userId)
+        .single();
+
+    if (error) handleError(error);
+
+    return data;
+
+}
