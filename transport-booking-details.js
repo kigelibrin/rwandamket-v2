@@ -79,6 +79,59 @@ ${booking.booking_status}
 </p>
 
 `;
+  if(
+
+booking.assigned_driver_id
+
+){
+
+const driver=
+
+await getDriver(
+
+booking.assigned_driver_id
+
+);
+
+document
+
+.getElementById(
+
+"bookingDetails"
+
+)
+
+.innerHTML+=`
+
+<hr>
+
+<h3>
+
+Assigned Driver
+
+</h3>
+
+<p>
+
+${driver.full_name}
+
+</p>
+
+<p>
+
+${driver.phone}
+
+</p>
+
+<p>
+
+${driver.vehicle_plate}
+
+</p>
+
+`;
+
+}
 
 }
 async function updateBookingStatus(status){
