@@ -77,7 +77,18 @@ productUnit.value
 
 try{
 
-await createProduct(product);
+if (editingProductId) {
+
+    await updateProduct(
+        editingProductId,
+        product
+    );
+
+} else {
+
+    await createProduct(product);
+
+}
 
 alert(
 "Product created successfully."
