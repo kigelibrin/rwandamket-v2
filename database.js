@@ -731,3 +731,28 @@ if(error) handleError(error);
 return data;
 
 }
+// ========================================
+// GET DRIVERS
+// ========================================
+
+async function getDrivers(companyId){
+
+const {data,error}=await db
+
+.from("drivers")
+
+.select("*")
+
+.eq("company_id",companyId)
+
+.order(
+
+"full_name"
+
+);
+
+if(error) handleError(error);
+
+return data;
+
+}
