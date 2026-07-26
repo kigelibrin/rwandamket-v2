@@ -649,3 +649,50 @@ if(error) handleError(error);
 return data;
 
 }
+// ========================================
+// GET TRANSPORT STAFF
+// ========================================
+
+async function getTransportStaff(companyId){
+
+const {data,error}=await db
+
+.from("transport_staff")
+
+.select("*")
+
+.eq("company_id",companyId)
+
+.order("full_name");
+
+if(error) handleError(error);
+
+return data;
+
+}
+// ========================================
+// UPDATE BOOKING
+// ========================================
+
+async function updateTransportBooking(
+id,
+values
+){
+
+const {data,error}=await db
+
+.from("transport_bookings")
+
+.update(values)
+
+.eq("id",id)
+
+.select()
+
+.single();
+
+if(error) handleError(error);
+
+return data;
+
+}
