@@ -54,5 +54,3 @@ function initHeroSlider() {
     }, 5000);
 }
 
-// Call the function once DOM is ready
-document.addEventListener("DOMContentLoaded", initHeroSlider);
