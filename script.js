@@ -30,7 +30,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 // ========================================
 
 function initHeroSlider() {
-
     const slides = document.querySelectorAll(".hero-slide");
     const dots = document.querySelectorAll(".hero-dot");
 
@@ -39,37 +38,21 @@ function initHeroSlider() {
     let currentSlide = 0;
 
     function showSlide(index) {
-
-        slides.forEach(slide =>
-            slide.classList.remove("active")
-        );
-
-        dots.forEach(dot =>
-            dot.classList.remove("active")
-        );
+        slides.forEach(slide => slide.classList.remove("active"));
+        dots.forEach(dot => dot.classList.remove("active"));
 
         slides[index].classList.add("active");
 
         if (dots[index]) {
-
             dots[index].classList.add("active");
-
         }
-
     }
 
     setInterval(() => {
-
-        currentSlide++;
-
-        if (currentSlide >= slides.length) {
-
-            currentSlide = 0;
-
-        }
-
+        currentSlide = (currentSlide + 1) % slides.length;
         showSlide(currentSlide);
-
     }, 5000);
-
 }
+
+// Call the function once DOM is ready
+document.addEventListener("DOMContentLoaded", initHeroSlider);
