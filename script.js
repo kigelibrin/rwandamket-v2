@@ -75,6 +75,7 @@ function initHeroSlider() {
             startAutoSlide(); // Reset timer on manual click
         });
     });
+    showSlide(currentSlide);
 
     // Start auto slider
     startAutoSlide();
