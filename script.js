@@ -37,8 +37,12 @@ document.addEventListener("DOMContentLoaded", async () => {
 // ========================================
 
 function initHeroSlider() {
+    console.log("Hero slider initialized");
+
     const slides = document.querySelectorAll(".hero-slide");
     const dots = document.querySelectorAll(".hero-dot");
+
+    console.log("Slides found:", slides.length);
 
     if (!slides.length) return;
 
@@ -46,6 +50,8 @@ function initHeroSlider() {
     let slideInterval = null;
 
     function showSlide(index) {
+        console.log("Showing slide:", index);
+
         slides.forEach(slide => slide.classList.remove("active"));
         dots.forEach(dot => dot.classList.remove("active"));
 
@@ -58,25 +64,16 @@ function initHeroSlider() {
 
     function nextSlide() {
         currentSlide = (currentSlide + 1) % slides.length;
+        console.log("Next slide:", currentSlide);
         showSlide(currentSlide);
     }
 
     function startAutoSlide() {
-        // Prevent duplicate intervals
+        console.log("Starting interval...");
         if (slideInterval) clearInterval(slideInterval);
         slideInterval = setInterval(nextSlide, 5000);
     }
 
-    // Add click handlers for dots
-    dots.forEach((dot, index) => {
-        dot.addEventListener("click", () => {
-            currentSlide = index;
-            showSlide(currentSlide);
-            startAutoSlide(); // Reset timer on manual click
-        });
-    });
     showSlide(currentSlide);
-
-    // Start auto slider
     startAutoSlide();
 }
