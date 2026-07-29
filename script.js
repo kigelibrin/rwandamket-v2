@@ -77,3 +77,4 @@ function initHeroSlider() {
     showSlide(currentSlide);
     startAutoSlide();
 }
+document.addEventListener("DOMContentLoaded", initHeroSlider);
