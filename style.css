@@ -2729,3 +2729,46 @@ gap:15px;
     }
 
 }
+.cart-item{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:15px 0;
+
+    border-bottom:1px solid #eee;
+
+}
+
+.cart-controls{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+}
+
+.cart-controls button{
+
+    width:32px;
+
+    height:32px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#00A859;
+
+    color:#fff;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+}
