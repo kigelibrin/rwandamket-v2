@@ -9,7 +9,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     try {
         // 1. Initialize synchronous UI components immediately
         initTheme();
-        initHeroSlider();
         initSearch();
         initCart();
 
@@ -32,49 +31,3 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 });
 
-// ========================================
-// HERO SLIDER
-// ========================================
-
-function initHeroSlider() {
-    console.log("Hero slider initialized");
-
-    const slides = document.querySelectorAll(".hero-slide");
-    const dots = document.querySelectorAll(".hero-dot");
-
-    console.log("Slides found:", slides.length);
-
-    if (!slides.length) return;
-
-    let currentSlide = 0;
-    let slideInterval = null;
-
-    function showSlide(index) {
-        console.log("Showing slide:", index);
-
-        slides.forEach(slide => slide.classList.remove("active"));
-        dots.forEach(dot => dot.classList.remove("active"));
-
-        slides[index].classList.add("active");
-
-        if (dots[index]) {
-            dots[index].classList.add("active");
-        }
-    }
-
-    function nextSlide() {
-        currentSlide = (currentSlide + 1) % slides.length;
-        console.log("Next slide:", currentSlide);
-        showSlide(currentSlide);
-    }
-
-    function startAutoSlide() {
-        console.log("Starting interval...");
-        if (slideInterval) clearInterval(slideInterval);
-        slideInterval = setInterval(nextSlide, 5000);
-    }
-
-    showSlide(currentSlide);
-    startAutoSlide();
-}
-document.addEventListener("DOMContentLoaded", initHeroSlider);
