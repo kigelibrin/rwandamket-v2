@@ -1,30 +1,46 @@
 // ========================================
 // RWANDAMKET
-// Theme
+// Theme Controller
 // ========================================
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    const themeButton = document.getElementById("themeToggle");
+    const themeToggle = document.getElementById("themeToggle");
+
+    if (!themeToggle) return;
 
     // Load saved theme
-    if (localStorage.getItem("theme") === "dark") {
+    const savedTheme = localStorage.getItem("theme");
+
+    if (savedTheme === "dark") {
 
         document.body.classList.add("dark-theme");
-        themeButton.textContent = "☀️";
+        themeToggle.textContent = "☀️";
+
+    } else {
+
+        themeToggle.textContent = "🌙";
 
     }
 
-    themeButton?.addEventListener("click", () => {
-
-        document.body.classList.toggle("dark-theme");
-
-        const isDark = document.body.classList.contains("dark-theme");
-
-        localStorage.setItem("theme", isDark ? "dark" : "light");
-
-        themeButton.textContent = isDark ? "☀️" : "🌙";
-
-    });
+    themeToggle.addEventListener("click", toggleTheme);
 
 });
+
+function toggleTheme() {
+
+    document.body.classList.toggle("dark-theme");
+
+    const isDark = document.body.classList.contains("dark-theme");
+
+    localStorage.setItem("theme", isDark ? "dark" : "light");
+
+    const themeToggle = document.getElementById("themeToggle");
+
+    if (themeToggle) {
+
+        themeToggle.textContent = isDark ? "☀️" : "🌙";
+
+    }
+
+}
