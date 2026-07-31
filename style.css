@@ -2772,3 +2772,89 @@ gap:15px;
     font-size:18px;
 
 }
+/* ==========================================================
+   DARK THEME
+========================================================== */
+
+body.dark-theme{
+
+    background:#111827;
+    color:#f3f4f6;
+
+}
+
+/* Header */
+
+body.dark-theme header{
+
+    background:#1f2937;
+    border-bottom:1px solid #374151;
+
+}
+
+/* Navigation buttons */
+
+body.dark-theme .theme-btn,
+body.dark-theme .btn-secondary{
+
+    background:#374151;
+    color:#ffffff;
+
+}
+
+/* Cards */
+
+body.dark-theme .market-card,
+body.dark-theme .feature-card,
+body.dark-theme .service-card{
+
+    background:#1f2937;
+    color:#ffffff;
+
+}
+
+/* Sections */
+
+body.dark-theme .bg-light{
+
+    background:#111827;
+
+}
+
+/* Inputs */
+
+body.dark-theme input,
+body.dark-theme textarea,
+body.dark-theme select{
+
+    background:#1f2937;
+    color:#ffffff;
+    border:1px solid #374151;
+
+}
+
+/* Cart Drawer */
+
+body.dark-theme .cart-drawer{
+
+    background:#1f2937;
+    color:#ffffff;
+
+}
+
+/* Footer */
+
+body.dark-theme footer{
+
+    background:#0f172a;
+    color:#ffffff;
+
+}
+
+/* Links */
+
+body.dark-theme a{
+
+    color:#93c5fd;
+
+}
