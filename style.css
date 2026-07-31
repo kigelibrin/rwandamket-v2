@@ -2858,3 +2858,14 @@ body.dark-theme a{
     color:#93c5fd;
 
 }
+:root {
+    --background: #ffffff;
+    --surface: #f8fafc;
+    --text: #111827;
+}
+
+body.dark-theme {
+    --background: #111827;
+    --surface: #1f2937;
+    --text: #f3f4f6;
+}
