@@ -40,6 +40,9 @@
     /* Background */
 
     --background:#F8F9FA;
+   --white:#FFFFFF;
+--card-bg:var(--surface);
+--border-color:var(--border);
     --surface:#FFFFFF;
 
     /* Status */
@@ -364,28 +367,20 @@ p{
 header{
 
     position:sticky;
-
     top:0;
-
     z-index:1000;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:14px 5%;
 
     background:var(--surface);
 
     border-bottom:1px solid var(--border);
 
     box-shadow:var(--shadow-sm);
-
-    padding:12px 24px;
-
-}
-
-.header-container{
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:space-between;
 
 }
 
@@ -420,68 +415,6 @@ header{
     color:var(--primary);
 
 }
-
-
-
-/* ==========================================================================
-   7. NAVIGATION
-========================================================================== */
-
-nav{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:22px;
-
-}
-
-.nav-link{
-
-    position:relative;
-
-    color:var(--text);
-
-    font-weight:600;
-
-    transition:var(--transition);
-
-}
-
-.nav-link:hover{
-
-    color:var(--primary);
-
-}
-
-.nav-link::after{
-
-    content:"";
-
-    position:absolute;
-
-    left:0;
-
-    bottom:-6px;
-
-    width:0;
-
-    height:2px;
-
-    background:var(--primary);
-
-    transition:.25s;
-
-}
-
-.nav-link:hover::after{
-
-    width:100%;
-
-}
-
-
 
 /* ==========================================================================
    8. BUTTONS
@@ -528,30 +461,69 @@ nav{
     transform:translateY(-3px);
 
 }
-
 .btn-secondary{
 
-    background:#ECECEC;
-
-    color:#333;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
 
     padding:12px 24px;
 
+    border:none;
+
     border-radius:40px;
+
+    background:var(--surface);
+
+    color:var(--text);
+
+    border:1px solid var(--border);
 
     font-weight:600;
 
-}
+    cursor:pointer;
 
-body.dark-mode .btn-secondary{
-
-    background:#2C2C2C;
-
-    color:white;
+    transition:var(--transition);
 
 }
 
+.btn-secondary:hover{
 
+    background:var(--primary);
+
+    color:#fff;
+
+}
+.theme-btn{
+
+    width:46px;
+    height:46px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:var(--surface);
+
+    border:1px solid var(--border);
+
+    cursor:pointer;
+
+    transition:var(--transition);
+
+}
+
+.theme-btn:hover{
+
+    background:var(--primary);
+
+    color:#fff;
+
+}
 
 /* ==========================================================================
    9. SHARED COMPONENTS
