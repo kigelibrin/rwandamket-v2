@@ -1900,79 +1900,6 @@ background:rgba(0,0,0,.05);
 
 }
 /* ========================================
-32. AUTHENTICATION
-======================================== */
-
-.auth-page{
-
-min-height:100vh;
-
-display:flex;
-
-align-items:center;
-
-justify-content:center;
-
-padding:80px 20px;
-
-}
-
-.auth-card{
-
-max-width:450px;
-
-width:100%;
-
-background:var(--card-bg);
-
-padding:40px;
-
-border-radius:20px;
-
-box-shadow:var(--shadow);
-
-}
-
-.auth-card form{
-
-display:flex;
-
-flex-direction:column;
-
-gap:20px;
-
-margin-top:30px;
-
-}
-
-.auth-card input{
-
-padding:15px;
-
-border:1px solid #ddd;
-
-border-radius:10px;
-
-font-size:1rem;
-
-width:100%;
-
-}
-
-.auth-card h1{
-
-margin-bottom:10px;
-
-}
-
-.auth-card p{
-
-margin-top:20px;
-
-text-align:center;
-
-}
-/* ========================================
 33. VENDOR DASHBOARD
 ======================================== */
 
@@ -2291,16 +2218,6 @@ gap:15px;
     font-weight:600;
 
 }
-
-@media(max-width:768px){
-
-    .cart-drawer{
-
-        width:100%;
-
-    }
-
-}
 .cart-item{
 
     display:flex;
@@ -2345,99 +2262,85 @@ gap:15px;
 
 }
 /* ==========================================================
-   DARK THEME
+   29. RESPONSIVE
 ========================================================== */
 
-body.dark-theme{
+@media (max-width: 992px){
 
-    background:#111827;
-    color:#f3f4f6;
+    .services-grid,
+    .markets-grid,
+    .products-grid,
+    .dashboard-summary,
+    .orders-grid{
 
-}
+        grid-template-columns:repeat(2,1fr);
 
-/* Header */
-
-body.dark-theme header{
-
-    background:#1f2937;
-    border-bottom:1px solid #374151;
+    }
 
 }
 
-/* Navigation buttons */
+@media (max-width:768px){
 
-body.dark-theme .theme-btn,
-body.dark-theme .btn-secondary{
+    header{
 
-    background:#374151;
-    color:#ffffff;
+        padding:12px 20px;
 
-}
+        flex-wrap:wrap;
 
-/* Cards */
+        gap:15px;
 
-body.dark-theme .market-card,
-body.dark-theme .feature-card,
-body.dark-theme .service-card{
+    }
 
-    background:#1f2937;
-    color:#ffffff;
+    .hero-content h1{
 
-}
+        font-size:2.3rem;
 
-/* Sections */
+    }
 
-body.dark-theme .bg-light{
+    .hero-content p{
 
-    background:#111827;
+        font-size:1rem;
 
-}
+    }
 
-/* Inputs */
+    .hero-buttons{
 
-body.dark-theme input,
-body.dark-theme textarea,
-body.dark-theme select{
+        flex-direction:column;
 
-    background:#1f2937;
-    color:#ffffff;
-    border:1px solid #374151;
+    }
 
-}
+    .cart-drawer{
 
-/* Cart Drawer */
+        width:100%;
 
-body.dark-theme .cart-drawer{
+    }
 
-    background:#1f2937;
-    color:#ffffff;
+    .services-grid,
+    .markets-grid,
+    .products-grid,
+    .dashboard-summary,
+    .orders-grid{
+
+        grid-template-columns:1fr;
+
+    }
 
 }
 
-/* Footer */
+@media (max-width:480px){
 
-body.dark-theme footer{
+    .header-logo{
 
-    background:#0f172a;
-    color:#ffffff;
+        width:48px;
+        height:48px;
 
-}
+    }
 
-/* Links */
+    .btn-primary,
+    .btn-secondary{
 
-body.dark-theme a{
+        width:100%;
 
-    color:#93c5fd;
+    }
 
-}
-:root {
-    --background: #ffffff;
-    --surface: #f8fafc;
-    --text: #111827;
-}
-
-body.dark-theme {
-    --background: #111827;
-    --surface: #1f2937;
-    --text: #f3f4f6;
 }
