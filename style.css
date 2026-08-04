@@ -856,6 +856,70 @@ header{
     border-color:var(--primary);
 
 }
+/* ==========================================================
+   FEATURED SERVICES
+=========================================================== */
+
+.section-heading{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.section-heading h2{
+    font-size:2rem;
+    color:var(--primary);
+    margin-bottom:10px;
+}
+
+.section-heading p{
+    color:var(--text-light);
+}
+
+.services-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.service-card{
+    background:var(--white);
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:var(--shadow);
+    border:1px solid var(--border-color);
+    transition:var(--transition);
+    text-align:center;
+    cursor:pointer;
+}
+
+.service-card:hover{
+    transform:translateY(-8px);
+}
+
+.service-icon{
+    font-size:2rem;
+    margin-top:20px;
+}
+
+.service-card img{
+    width:100%;
+    height:180px;
+    object-fit:cover;
+}
+
+.service-card h3{
+    margin:20px 15px 10px;
+}
+
+.service-card p{
+    margin:0 20px 20px;
+    color:var(--text-light);
+    font-size:.9rem;
+}
+
+.service-card .btn-primary{
+    margin-bottom:20px;
+}
 
 /* =============================================================================
    14. MARKET GRID
@@ -1249,82 +1313,6 @@ header{
 
 }
 
-
-
-/* =============================================================================
-   19. FLOATING CART
-=============================================================================*/
-
-.cart-bar{
-
-    position:fixed;
-
-    right:30px;
-
-    bottom:30px;
-
-    width:340px;
-
-    background:var(--primary-dark);
-
-    color:#fff;
-
-    border-radius:22px;
-
-    padding:22px;
-
-    box-shadow:var(--shadow-lg);
-
-    z-index:2000;
-
-    transition:.35s;
-
-}
-
-.cart-bar.hidden{
-
-    transform:translateY(180%);
-
-}
-
-.cart-header{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    margin-bottom:18px;
-
-}
-
-.cart-title{
-
-    font-size:1.1rem;
-
-    font-weight:700;
-
-}
-
-.cart-total{
-
-    font-size:1.3rem;
-
-    font-weight:800;
-
-}
-
-.checkout-btn{
-
-    width:100%;
-
-    margin-top:18px;
-
-}
-
-
-
 /* =============================================================================
    20. CHECKOUT SUMMARY
 =============================================================================*/
@@ -1626,201 +1614,6 @@ body.dark-mode .skeleton{
     }
 
 }
-
-
-
-/* =============================================================================
-   26. RESPONSIVE
-=============================================================================*/
-
-@media(max-width:768px){
-
-    .products-grid{
-
-        grid-template-columns:repeat(2,1fr);
-
-    }
-
-    .cart-bar{
-
-        width:calc(100% - 30px);
-
-        right:15px;
-
-        bottom:15px;
-
-    }
-
-}
-
-@media(max-width:520px){
-
-    .products-grid{
-
-        grid-template-columns:1fr;
-
-    }
-
-}
-
-/* ========================================
-27. PAYMENT & CHECKOUT
-======================================== */
-
-.payment-page,
-
-.checkout-page{
-
-padding:90px 20px;
-
-min-height:100vh;
-
-}
-
-.payment-grid{
-
-display:grid;
-
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-
-gap:25px;
-
-margin:40px 0;
-
-}
-
-.payment-method{
-
-background:var(--card-bg);
-
-padding:35px 20px;
-
-border-radius:18px;
-
-text-align:center;
-
-cursor:pointer;
-
-transition:.3s;
-
-box-shadow:var(--shadow);
-
-border:2px solid transparent;
-
-}
-
-.payment-method:hover{
-
-transform:translateY(-5px);
-
-}
-
-.payment-method.selected{
-
-border-color:var(--primary);
-
-}
-
-.payment-method h3{
-
-margin-top:15px;
-
-}
-
-.checkout-summary{
-
-background:var(--card-bg);
-
-padding:30px;
-
-border-radius:20px;
-
-box-shadow:var(--shadow);
-
-margin-top:35px;
-
-}
-
-.checkout-summary h2{
-
-margin-bottom:20px;
-
-}
-
-.checkout-summary p{
-
-display:flex;
-
-justify-content:space-between;
-
-margin-bottom:15px;
-
-}
-
-/* ==========================================================
-   FEATURED SERVICES
-=========================================================== */
-
-.section-heading{
-    text-align:center;
-    margin-bottom:40px;
-}
-
-.section-heading h2{
-    font-size:2rem;
-    color:var(--primary);
-    margin-bottom:10px;
-}
-
-.section-heading p{
-    color:var(--text-light);
-}
-
-.services-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:25px;
-}
-
-.service-card{
-    background:var(--white);
-    border-radius:20px;
-    overflow:hidden;
-    box-shadow:var(--shadow);
-    border:1px solid var(--border-color);
-    transition:var(--transition);
-    text-align:center;
-    cursor:pointer;
-}
-
-.service-card:hover{
-    transform:translateY(-8px);
-}
-
-.service-icon{
-    font-size:2rem;
-    margin-top:20px;
-}
-
-.service-card img{
-    width:100%;
-    height:180px;
-    object-fit:cover;
-}
-
-.service-card h3{
-    margin:20px 15px 10px;
-}
-
-.service-card p{
-    margin:0 20px 20px;
-    color:var(--text-light);
-    font-size:.9rem;
-}
-
-.service-card .btn-primary{
-    margin-bottom:20px;
-}
 /* ========================================
 28. MARKET DETAILS
 ======================================== */
@@ -1937,123 +1730,7 @@ box-shadow:var(--shadow);
 font-weight:600;
 
 }
-/* ========================================
-29. PRODUCTS
-======================================== */
 
-.products-section{
-
-padding:80px 0;
-
-}
-
-.products-grid{
-
-display:grid;
-
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-
-gap:30px;
-
-}
-
-.product-card{
-
-background:var(--card-bg);
-
-border-radius:20px;
-
-overflow:hidden;
-
-box-shadow:var(--shadow);
-
-transition:.3s;
-
-position:relative;
-
-}
-
-.product-card:hover{
-
-transform:translateY(-8px);
-
-}
-
-.product-card img{
-
-width:100%;
-
-height:220px;
-
-object-fit:cover;
-
-}
-
-.product-card h3{
-
-margin:20px;
-
-}
-
-.product-card p{
-
-margin:0 20px 15px;
-
-color:var(--text-light);
-
-}
-
-.product-meta{
-
-display:flex;
-
-justify-content:space-between;
-
-padding:0 20px 15px;
-
-font-size:.9rem;
-
-}
-
-.price-box{
-
-padding:0 20px 20px;
-
-font-size:1.1rem;
-
-font-weight:700;
-
-}
-
-.discount-badge{
-
-position:absolute;
-
-top:15px;
-
-right:15px;
-
-background:#ff4d4f;
-
-color:#fff;
-
-padding:6px 10px;
-
-border-radius:10px;
-
-font-size:.8rem;
-
-font-weight:bold;
-
-}
-
-.product-card .btn-primary{
-
-margin:20px;
-
-width:calc(100% - 40px);
-
-}
 /* ========================================
 30. SHOPPING CART
 ======================================== */
