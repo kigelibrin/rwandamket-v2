@@ -602,7 +602,7 @@ header{
 
     position:relative;
     height:100vh;
-    min-height:90px;
+    min-height:100vh;
 
     display:flex;
     align-items:center;
@@ -750,54 +750,47 @@ header{
 /* =============================================================================
    11. SEARCH
 =============================================================================*/
+.search-container{
 
-.search-wrapper{
+    max-width:700px;
 
-    margin-top:-45px;
-
-    position:relative;
-
-    z-index:50;
+    margin:0 auto 30px;
 
 }
 
-.search-box{
-
-    background:var(--surface);
-
-    padding:22px;
-
-    border-radius:22px;
-
-    box-shadow:var(--shadow-lg);
-
-    border:1px solid var(--border);
-
-}
-
-.search-input{
+.search-container input{
 
     width:100%;
 
-    border-radius:30px;
+    padding:15px 20px;
 
-    background:transparent;
+    border:1px solid var(--border);
+
+    border-radius:50px;
+
+    background:var(--surface);
 
     color:var(--text);
 
-    font-size:16px;
-   padding: 14px 18px;
+    font-size:1rem;
+
+    transition:var(--transition);
 
 }
 
-.search-input::placeholder{
+.search-container input:focus{
+
+    border-color:var(--primary);
+
+    box-shadow:0 0 0 4px rgba(46,125,50,.12);
+
+}
+
+.search-container input::placeholder{
 
     color:var(--text-light);
 
 }
-
-
-
 /* =============================================================================
    12. CATEGORY CHIPS
 =============================================================================*/
@@ -863,41 +856,6 @@ header{
     border-color:var(--primary);
 
 }
-
-
-
-/* =============================================================================
-   13. SECTION HEADERS
-=============================================================================*/
-
-.section-header{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    margin-bottom:30px;
-   color:white;
-
-}
-
-.section-link{
-
-    color:var(--primary);
-
-    font-weight:700;
-
-}
-
-.section-link:hover{
-
-    text-decoration:underline;
-
-}
-
-
 
 /* =============================================================================
    14. MARKET GRID
@@ -1703,44 +1661,6 @@ body.dark-mode .skeleton{
 
     }
 
-}
-.hero-overlay{
-    position:absolute;
-    inset:0;
-    background:rgba(0,0,0,.45);
-    z-index:1;
-}
-
-.hero-badge{
-    display:inline-block;
-    background:rgba(255,255,255,.15);
-    color:#fff;
-    padding:8px 18px;
-    border-radius:30px;
-    margin-bottom:20px;
-    backdrop-filter:blur(6px);
-    font-size:.85rem;
-    font-weight:600;
-}
-
-.hero-content h1{
-    font-size:3rem;
-    line-height:1.2;
-    margin-bottom:20px;
-}
-
-.hero-content p{
-    max-width:650px;
-    margin:0 auto 30px;
-    font-size:1.05rem;
-    color:rgba(255,255,255,.9);
-}
-
-.hero-buttons{
-    display:flex;
-    gap:15px;
-    justify-content:center;
-    flex-wrap:wrap;
 }
 
 /* ==========================================================
